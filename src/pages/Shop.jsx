@@ -1,118 +1,132 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaWhatsapp, FaCheckCircle, FaLeaf, FaTruckLoading } from 'react-icons/fa';
+
+const cardHover = {
+  initial: { y: 0, boxShadow: "0px 10px 20px rgba(0,0,0,0.05)" },
+  hover: { 
+    y: -10, 
+    borderColor: "#D4AF37",
+    boxShadow: "0px 30px 60px rgba(212, 175, 55, 0.15)",
+    transition: { duration: 0.4, ease: "easeOut" }
+  }
+};
+
+const products = [
+  {
+    id: 1,
+    name: "Classic Sharbati Atta",
+    size: "5 KG",
+    price: "₹390",
+    tag: "Fresh Start",
+    desc: "Milled within 24 hours of your order. Perfect for small families.",
+    features: ["Cold-Milled", "Zero Additives", "MP Sharbati"]
+  },
+  {
+    id: 2,
+    name: "Wellness Subscription",
+    size: "10 KG (5KG x 2)",
+    price: "₹720",
+    tag: "Best Value",
+    desc: "Two fresh deliveries a month to ensure your rotis stay soft and alive.",
+    features: ["Free Delivery", "Priority Milling", "Cancel Anytime"],
+    recommended: true
+  }
+];
 
 const Shop = () => {
-  const whatsappNumber = "91XXXXXXXXXX"; // Replace with your actual number
-
-  const plans = [
-    {
-      name: "Standard Freshness",
-      weight: "5KG",
-      price: "390",
-      description: "Perfect for couples or small families. Milled on demand.",
-      features: ["Single 5kg Breathable Bag", "Traditional Stone-Milling", "24h Doorstep Delivery", "FSSAI Grade Quality"],
-      recommended: false
-    },
-    {
-      name: "Family Wellness Subscription",
-      weight: "10KG",
-      price: "720",
-      description: "Our most popular startup plan. Maximum nutrition for kids & elders.",
-      features: ["Two 5kg Deliveries (Freshness x2)", "Free Handcrafted Wooden Scoop", "Priority Milling Slots", "Monthly Subscription Savings"],
-      recommended: true
-    }
-  ];
-
-  const handleOrder = (plan) => {
-    const message = `Hi Aarahi Foods! I want to book a milling slot for the ${plan.name} (${plan.weight}). Please share payment details and next available delivery date for my neighborhood.`;
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
-  };
-
   return (
-    <div className="min-h-screen bg-[#FFFDF5] pt-24 pb-20 font-serif">
-      <div className="max-w-7xl mx-auto px-6">
+    <div className="min-h-screen bg-[#FFFDF5] pt-32 pb-24 px-6 font-serif">
+      <div className="max-w-7xl mx-auto">
         
         {/* Header Section */}
-        <div className="text-center mb-16">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-5xl font-bold text-[#3E2723] mb-4"
+        <div className="text-center mb-20">
+          <motion.span 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="uppercase tracking-[0.3em] text-[10px] font-sans font-bold text-[#8B4513]"
           >
-            Freshness on Demand
-          </motion.h1>
-          <p className="font-sans text-gray-600 max-w-2xl mx-auto italic">
-            "We don't stock flour. We stock grain. Your milling starts only after you book your slot."
+            Bangalore's Freshness Subscription
+          </motion.span>
+          <h1 className="text-5xl md:text-6xl font-bold mt-4 text-[#3E2723]">
+            Choose Your <span className="italic text-[#D4AF37]">Freshness.</span>
+          </h1>
+          <p className="mt-6 text-gray-600 font-sans max-w-xl mx-auto">
+            We don't stock flour. We mill for you. Select a plan below to start your journey toward better health.
           </p>
         </div>
 
-        {/* Startup Trust Banner */}
-        <div className="grid md:grid-cols-3 gap-6 mb-20">
-          {[
-            { icon: <FaLeaf />, title: "100% Sharbati", desc: "No blending with cheaper wheat." },
-            { icon: <FaTruckLoading />, title: "Milled-to-Order", desc: "Zero warehouse sitting time." },
-            { icon: <FaCheckCircle />, title: "Route-Based Delivery", desc: "North Bangalore optimized." }
-          ].map((item, i) => (
-            <div key={i} className="flex items-center gap-4 bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
-              <div className="text-[#D4AF37] text-2xl">{item.icon}</div>
-              <div className="font-sans">
-                <div className="font-bold text-[#3E2723] text-sm">{item.title}</div>
-                <div className="text-xs text-gray-500">{item.desc}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Pricing Cards */}
-        <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-          {plans.map((plan, index) => (
-            <motion.div 
-              key={index}
-              whileHover={{ y: -10 }}
-              className={`relative bg-white p-10 rounded-[3rem] border-2 ${plan.recommended ? 'border-[#D4AF37] shadow-2xl scale-105' : 'border-gray-100 shadow-lg'}`}
+        {/* Product Grid */}
+        <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          {products.map((product) => (
+            <motion.div
+              key={product.id}
+              variants={cardHover}
+              initial="initial"
+              whileHover="hover"
+              className={`relative bg-white p-10 rounded-[3rem] border-2 transition-colors cursor-pointer ${
+                product.recommended ? 'border-[#D4AF37]' : 'border-gray-100'
+              }`}
             >
-              {plan.recommended && (
-                <div className="absolute top-0 right-10 bg-[#D4AF37] text-white px-6 py-2 rounded-b-2xl font-sans text-xs font-bold uppercase tracking-widest">
-                  Best for Health
+              {product.recommended && (
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#D4AF37] text-white px-6 py-1 rounded-full text-[10px] font-sans font-bold uppercase tracking-widest">
+                  Most Popular
                 </div>
               )}
-              
-              <h3 className="text-2xl font-bold text-[#3E2723] mb-2">{plan.name}</h3>
-              <div className="text-4xl font-bold text-[#D4AF37] mb-6">
-                ₹{plan.price} <span className="text-lg font-normal text-gray-400">/ {plan.weight}</span>
+
+              <div className="text-center">
+                <span className="text-sm font-sans font-bold text-[#D4AF37] uppercase tracking-widest">{product.tag}</span>
+                <h3 className="text-3xl font-bold text-[#3E2723] mt-2">{product.name}</h3>
+                <p className="text-[#8B4513] font-bold mt-1">{product.size}</p>
+                
+                <div className="my-8 aspect-square bg-[#FDFBF7] rounded-[2rem] flex items-center justify-center overflow-hidden border border-gray-50">
+                   {/* This is where your Aarahi Image 2.jpg would look great */}
+                   <img src="/Aarahi Image 2.jpg" alt={product.name} className="w-full h-full object-cover opacity-80 hover:scale-110 transition-transform duration-700" />
+                </div>
+
+                <p className="text-gray-500 font-sans text-sm leading-relaxed mb-8">
+                  {product.desc}
+                </p>
+
+                <div className="space-y-3 mb-10">
+                  {product.features.map(feature => (
+                    <div key={feature} className="flex items-center justify-center gap-2 text-xs font-sans text-[#3E2723]">
+                      <span className="text-[#D4AF37]">✓</span> {feature}
+                    </div>
+                  ))}
+                </div>
+
+                <div className="text-4xl font-bold text-[#3E2723] mb-8">
+                  {product.price}
+                </div>
+
+                <button className={`w-full py-5 rounded-2xl font-sans font-bold uppercase tracking-widest text-xs transition-all ${
+                  product.recommended 
+                  ? 'bg-[#3E2723] text-white hover:bg-[#D4AF37] shadow-xl shadow-[#D4AF37]/20' 
+                  : 'bg-transparent border-2 border-[#3E2723] text-[#3E2723] hover:bg-[#3E2723] hover:text-white'
+                }`}>
+                  {product.recommended ? 'Start Subscription' : 'Buy One-Time'}
+                </button>
               </div>
-              
-              <p className="font-sans text-gray-500 text-sm mb-8 leading-relaxed">
-                {plan.description}
-              </p>
-
-              <ul className="space-y-4 mb-10">
-                {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-3 font-sans text-sm text-[#3E2723]">
-                    <FaCheckCircle className="text-[#D4AF37] shrink-0" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              <button 
-                onClick={() => handleOrder(plan)}
-                className={`w-full py-5 rounded-2xl flex items-center justify-center gap-3 font-bold transition-all ${plan.recommended ? 'bg-[#3E2723] text-white' : 'border-2 border-[#3E2723] text-[#3E2723]'}`}
-              >
-                <FaWhatsapp className="text-xl" />
-                Book Milling Slot
-              </button>
             </motion.div>
           ))}
         </div>
 
-        {/* Startup Quality Note */}
-        <div className="mt-24 text-center border-t border-gray-100 pt-12">
-          <p className="font-sans text-xs text-gray-400 uppercase tracking-[0.4em] mb-4">Our Commitment</p>
-          <p className="max-w-3xl mx-auto font-sans text-sm text-gray-500 leading-relaxed">
-            As a boutique food startup, we prioritize quality over quantity. If we reach our daily milling capacity, we will queue your order for the next available 24-hour cycle. We never rush the stones.
-          </p>
+        {/* Reassurance Section */}
+        <div className="mt-32 text-center border-t border-gray-100 pt-20">
+          <div className="grid md:grid-cols-3 gap-12">
+            <div>
+              <h4 className="font-bold text-[#3E2723] mb-2">Flexible Delivery</h4>
+              <p className="text-sm text-gray-500 font-sans">Pause or skip your subscription any time via WhatsApp.</p>
+            </div>
+            <div>
+              <h4 className="font-bold text-[#3E2723] mb-2">Freshness Promise</h4>
+              <p className="text-sm text-gray-500 font-sans">If it's not the softest roti you've had, the next bag is on us.</p>
+            </div>
+            <div>
+              <h4 className="font-bold text-[#3E2723] mb-2">MBA Managed</h4>
+              <p className="text-sm text-gray-500 font-sans">Quality checked batches managed by Aalekhya Reddy.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
