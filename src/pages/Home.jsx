@@ -70,11 +70,11 @@ const Home = () => {
                 >
 
                     <h1 className="text-5xl md:text-4xl font-display font-bold leading-tight mb-8">
-                        We bring back trust in everyday food →  <span className="text-primary">Freshly milled. Pure. Honest.</span>
+                        We bring purity back to everyday food →  <span className="text-primary">Freshly milled. Pure. Honest.</span>
                     </h1>
                     <div className='real-food-section mt-[21px] mb-[30px] font-ibm text-[18.5px] leading-[29.5px] font-medium'>
                         <AnimatedHighlightText className="customizeparagraph animated-text-line">
-                            We bring back real, traditional food made the right way.
+                            Freshly milled chakki atta made from carefully selected wheat - clean, honest, and full of nutrition.
                         </AnimatedHighlightText>
                     </div>
                     {/* <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
