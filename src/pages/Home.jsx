@@ -59,26 +59,27 @@ const Home = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold mb-16 text-[#3E2723]">Choose Your Freshness Plan</h2>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="border-2 border-gray-100 p-8 rounded-3xl bg-white text-left">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
+            <div className="border-2 border-gray-100 p-8 rounded-3xl bg-white">
               <h3 className="text-2xl font-bold mb-2">Standard (5KG)</h3>
               <p className="text-4xl font-bold mb-6 text-[#3E2723]">₹390</p>
-              <button className="w-full py-4 rounded-xl border-2 border-[#3E2723] font-bold">Buy Once</button>
+              <button className="w-full py-4 rounded-xl border-2 border-[#3E2723] font-bold transition-colors hover:bg-gray-50">Buy Once</button>
             </div>
-            <div className="border-4 border-[#D4AF37] p-8 rounded-3xl bg-[#FFFDF5] shadow-2xl scale-105 text-left">
+            <div className="border-4 border-[#D4AF37] p-8 rounded-3xl bg-[#FFFDF5] shadow-2xl scale-105 relative">
+              <div className="absolute -top-4 left-10 bg-[#D4AF37] text-white px-4 py-1 rounded-full text-xs font-bold uppercase">Best Value</div>
               <h3 className="text-2xl font-bold mb-2">Family (10KG)</h3>
               <p className="text-4xl font-bold mb-6 text-[#3E2723]">₹720</p>
-              <button className="w-full py-4 rounded-xl bg-[#3E2723] text-white font-bold">Subscribe & Save</button>
+              <button className="w-full py-4 rounded-xl bg-[#3E2723] text-white font-bold hover:opacity-90 transition-opacity">Subscribe & Save</button>
             </div>
           </div>
         </div>
       </section>
 
       {/* 4. FOOTER */}
-      <footer className="bg-[#3E2723] text-white py-12 px-6 text-center">
+      <footer className="bg-[#3E2723] text-white py-12 px-6 text-center mt-20">
         <h2 className="text-3xl font-bold mb-4 italic">Aarahi Foods</h2>
         <p className="font-sans text-gray-400 mb-8">Crafting Wellness in Yelahanka, Bangalore.</p>
-        <div className="flex justify-center gap-8 text-sm uppercase tracking-widest text-gray-300">
+        <div className="flex flex-wrap justify-center gap-8 text-sm uppercase tracking-widest text-gray-300">
           <span>FSSAI: 2122xxxxxxxxxx</span>
           <span>WhatsApp: +91 xxxxxxxxxx</span>
         </div>
