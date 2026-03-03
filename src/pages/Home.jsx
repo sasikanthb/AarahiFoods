@@ -2,135 +2,102 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const Home = () => {
-  // Smooth scroll-in animations
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-  };
-
   return (
-    <div className="min-h-screen bg-white text-[#2D3436] font-serif overflow-x-hidden">
+    <div className="min-h-screen bg-[#FFFDF5] text-[#4A3728] font-serif overflow-x-hidden">
       
-      {/* 1. HERO SECTION: BRIGHT & AIRY */}
-      <section className="relative h-[90vh] flex items-center justify-center px-6 bg-[#F9FBF9]">
-        <div className="max-w-5xl text-center relative z-10">
-          <motion.span 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="uppercase tracking-[0.3em] text-xs mb-6 block text-[#2D5A27] font-sans font-bold"
+      {/* 1. THE "WARM KITCHEN" HERO */}
+      <section className="relative h-[85vh] flex items-center justify-center px-6 bg-[#FEF9E7] border-b-8 border-[#F3E5AB]">
+        <div className="max-w-4xl text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
           >
-            Milled in Bangalore • Delivered in 24 Hours
-          </motion.span>
-          
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-8xl font-bold mb-8 leading-tight text-[#1E392A]"
-          >
-            The Soul of the Grain, <br />
-            <span className="italic font-light text-[#A67C52]">Alive & Fresh.</span>
-          </motion.h1>
-          
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="text-lg md:text-xl mb-12 font-sans text-gray-600 max-w-2xl mx-auto leading-relaxed"
-          >
-            Stop eating warehouse flour. Experience slow-stone milled Sharbati wheat, 
-            delivered to your Bangalore home within 24 hours of milling.
-          </motion.p>
-          
-          <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
-            <button className="bg-[#2D5A27] text-white px-12 py-5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-[#1E392A] transition-all shadow-lg">
-              Claim Founder's Kit
-            </button>
-            <button className="border-2 border-[#2D5A27] text-[#2D5A27] px-12 py-5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-[#2D5A27] hover:text-white transition-all">
-              Our Subscriptions
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. THE PURITY PROMISE: CLEAN GRID */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-12 text-center">
-            {[
-              { title: "Stone-Milled", desc: "Traditional slow grinding below 30°C to keep nutrients alive.", icon: "🌾" },
-              { title: "24h Delivery", desc: "We mill only after you order. From the stones to your door in a day.", icon: "🚚" },
-              { title: "MBA Managed", desc: "Aalekhya Reddy (MBA) ensures professional quality control at every step.", icon: "🎓" }
-            ].map((item, idx) => (
-              <motion.div 
-                key={idx}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeInUp}
-                className="p-10 rounded-3xl bg-[#F9FBF9] border border-gray-100 shadow-sm"
-              >
-                <div className="text-4xl mb-6">{item.icon}</div>
-                <h3 className="text-2xl font-bold text-[#1E392A] mb-4">{item.title}</h3>
-                <p className="font-sans text-gray-600 leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 3. THE FOUNDER'S MANIFESTO (Aalekhya Reddy) */}
-      <section className="py-24 bg-[#FAF7F2]">
-        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center gap-16">
-          <div className="md:w-1/2">
-            <h2 className="text-4xl font-bold text-[#1E392A] mb-8 leading-tight">
-              "I built Aarahi because I wanted better for my family."
-            </h2>
-            <p className="text-lg font-sans text-gray-700 italic mb-8 leading-relaxed">
-              "As an MBA, I saw how industrial supply chains strip the life out of our staples. 
-              At Aarahi, we've applied professional precision to traditional milling to bring 
-              nutrition back to the Bangalore table."
+            <span className="bg-[#E67E22] text-white px-4 py-1 rounded-full text-[10px] uppercase tracking-widest font-sans font-bold mb-6 inline-block">
+              Bangalore's Freshest Flour
+            </span>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-[#2D1B08] leading-tight">
+              Love Your Family <br /> 
+              <span className="text-[#E67E22] italic font-medium">With Better Grain.</span>
+            </h1>
+            <p className="text-lg md:text-xl mb-10 font-sans text-[#6D5D4E] max-w-2xl mx-auto">
+              Aalekhya Reddy (MBA) founded Aarahi to bring the purity of a village 
+              chakki to the modern Bangalore home. Milled today, delivered tomorrow.
             </p>
-            <div className="font-sans">
-              <p className="font-bold text-[#1E392A] text-xl">Aalekhya Reddy</p>
-              <p className="text-sm text-[#A67C52] font-bold uppercase tracking-widest">Founder, Aarahi Foods (MBA)</p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <button className="bg-[#4A3728] text-white px-10 py-4 rounded-xl text-sm font-bold uppercase tracking-widest hover:bg-[#E67E22] transition-all shadow-xl">
+                Start My Subscription
+              </button>
+              <button className="bg-white text-[#4A3728] border-2 border-[#4A3728] px-10 py-4 rounded-xl text-sm font-bold uppercase tracking-widest hover:bg-[#FFFDF5] transition-all">
+                The Story
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 2. THE "WHY IT MATTERS" SECTION */}
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+          <div className="relative">
+            <div className="w-full aspect-square bg-[#FEF9E7] rounded-[3rem] rotate-3 absolute inset-0 -z-10 border-2 border-[#F3E5AB]"></div>
+            <div className="w-full aspect-square bg-white rounded-[3rem] border-2 border-[#F3E5AB] flex items-center justify-center p-12 shadow-lg">
+              <div className="text-center">
+                <div className="text-7xl mb-4">🌾</div>
+                <h3 className="text-2xl font-bold mb-2">MP Sharbati</h3>
+                <p className="font-sans text-gray-500 text-sm">Cold-milled to perfection.</p>
+              </div>
             </div>
           </div>
-          <div className="md:w-1/2">
-             <div className="aspect-square bg-white rounded-[4rem] border-8 border-white shadow-2xl flex items-center justify-center italic text-gray-300">
-               [Aalekhya's Professional Photo Here]
-             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. THE 24-HOUR CLOCK: SIMPLE & CLEAR */}
-      <section className="py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold text-[#1E392A] mb-20">The 24-Hour Freshness Cycle</h2>
-          <div className="space-y-12 text-left font-sans">
-            {[
-              { time: "05 AM", task: "Selection", desc: "Inspecting premium MP Sharbati for moisture and purity." },
-              { time: "09 AM", task: "Cold-Milling", desc: "Slow stone-milling at 28°C to prevent nutrient burn." },
-              { time: "04 PM", task: "Delivery", desc: "Hand-packed and dispatched across Bangalore." }
-            ].map((step, i) => (
-              <div key={i} className="flex gap-8 items-start border-l-4 border-[#2D5A27] pl-8 py-4">
-                <div className="font-bold text-[#A67C52] text-xl shrink-0">{step.time}</div>
+          
+          <div className="space-y-8">
+            <h2 className="text-4xl font-bold text-[#2D1B08]">Not just flour, <br />but a promise of health.</h2>
+            <div className="space-y-6">
+              <div className="flex gap-4">
+                <span className="text-2xl">🍯</span>
                 <div>
-                  <h4 className="font-bold text-[#1E392A] text-xl mb-2">{step.task}</h4>
-                  <p className="text-gray-500">{step.desc}</p>
+                  <h4 className="font-bold text-lg">Nutrients Preserved</h4>
+                  <p className="font-sans text-gray-600 text-sm italic">Stone-ground at 28°C. We never burn the grain.</p>
                 </div>
               </div>
-            ))}
+              <div className="flex gap-4">
+                <span className="text-2xl">🏡</span>
+                <div>
+                  <h4 className="font-bold text-lg">Milled for Bangalore</h4>
+                  <p className="font-sans text-gray-600 text-sm italic">No warehouses. No weeks on a shelf. Just 24h freshness.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 5. FOOTER: CLASSIC PREMIUM */}
-      <footer className="bg-[#1E392A] text-white py-20 px-6 text-center">
-        <h2 className="text-3xl font-bold mb-4">Aarahi Foods.</h2>
-        <p className="text-gray-400 font-sans max-w-md mx-auto mb-12">Elevating the Bangalore staple through precision and care.</p>
-        <div className="text-[10px] text-gray-500 uppercase tracking-[0.5em]">
-          © 2026 Aarahi Foods • Traditionally Milled • Bangalore
+      {/* 3. THE FOUNDER'S NOTE: WARM & PERSONAL */}
+      <section className="py-24 bg-[#FEF9E7]">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <div className="w-24 h-24 bg-white rounded-full mx-auto mb-8 border-4 border-[#F3E5AB] overflow-hidden">
+             {/* Photo of Aalekhya */}
+          </div>
+          <h2 className="text-3xl font-medium italic text-[#2D1B08] mb-8 leading-relaxed">
+            "Every pack of Aarahi Foods that reaches a home is a step toward 
+            a healthier Bangalore. From my family to yours, we ensure the 
+            highest quality Sharbati is milled with absolute care."
+          </h2>
+          <p className="font-sans font-bold text-[#E67E22] uppercase tracking-[0.2em] text-sm">
+            Aalekhya Reddy, MBA <br />
+            <span className="text-[#4A3728] font-normal tracking-normal capitalize mt-1 block italic text-xs">Founder, Aarahi Foods</span>
+          </p>
+        </div>
+      </section>
+
+      {/* 4. FOOTER: WARM & SIMPLE */}
+      <footer className="bg-[#4A3728] text-[#F3E5AB] py-16 px-6 text-center">
+        <h2 className="text-3xl font-bold mb-4 italic">Aarahi Foods.</h2>
+        <p className="font-sans text-white/60 text-sm mb-8 tracking-wide uppercase">
+          Traditionally Milled • Bangalore Owned
+        </p>
+        <div className="text-[10px] text-white/30 tracking-[0.3em]">
+          © 2026 AARAHI FOODS • BUILT FOR WELLNESS
         </div>
       </footer>
 
