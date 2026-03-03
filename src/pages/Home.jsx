@@ -95,16 +95,16 @@ const Home = () => {
       </section>
 
       {/* 3. THE FOUNDER'S DIRECT OATH (Aalekhya Reddy) */}
-      <section className="py-24 bg-white overflow-hidden">
+      <section className="py-24 bg-white overflow-hidden border-y border-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="bg-[#F5F5DC] rounded-[3rem] p-12 md:p-20 relative flex flex-col md:flex-row items-center gap-12 border border-[#D4AF37]/20 shadow-sm">
             <div className="md:w-3/5">
               <span className="text-[#D4AF37] font-sans font-bold uppercase tracking-widest text-xs mb-4 block">The Founder's Manifesto</span>
               <h2 className="text-4xl font-bold text-[#3E2723] mb-6 leading-tight">
-                "I couldn't find flour I trusted for my own kids. As an MBA, I decided to fix the supply chain myself."
+                "I couldn't find flour I trusted for my family's health. As an MBA, I decided to fix the supply chain myself."
               </h2>
               <p className="text-gray-700 font-sans italic mb-8 text-lg leading-relaxed">
-                "Most brands sacrifice your health for shelf-life. At Aarahi, we've applied professional management to traditional stone-milling. We aren't a factory; we are your neighborhood kitchen, milling only what is needed for the day."
+                "Most brands sacrifice nutrition for shelf-life. At Aarahi, we've applied professional management to traditional stone-milling. We aren't a factory; we are a dedicated kitchen for your family, milling only what is needed for the day."
               </p>
               <div className="flex flex-col">
                 <div className="text-[#3E2723] font-bold text-2xl font-serif">Aalekhya Reddy</div>
@@ -113,14 +113,14 @@ const Home = () => {
             </div>
             <div className="md:w-2/5 flex justify-center">
                <div className="w-72 h-72 rounded-full bg-white border-8 border-white shadow-2xl flex items-center justify-center italic text-gray-300 overflow-hidden">
-                 <span className="text-center p-8">[Professional Photo of Aalekhya Reddy]</span>
+                 <span className="text-center p-8">[Aalekhya Reddy - Founder Photo]</span>
                </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. THE 24-HOUR OBSESSION TIMELINE (FIXED ZIG-ZAG) */}
+      {/* 4. THE 24-HOUR OBSESSION TIMELINE */}
       <section className="py-24 bg-[#FCF9F2]">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-[#3E2723] mb-24 text-center italic font-serif tracking-tight">The 24-Hour Obsession</h2>
@@ -169,12 +169,13 @@ const Home = () => {
 
       {/* 5. THE TRANSPARENCY GRID */}
       <section className="py-24 bg-[#3E2723] text-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-12 text-center">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <h2 className="text-3xl font-bold mb-16 italic text-[#D4AF37]">The Aarahi Purity Standard</h2>
+          <div className="grid md:grid-cols-3 gap-12">
             <div className="p-10 border border-white/10 rounded-[2.5rem] bg-white/5">
               <div className="text-[#D4AF37] text-3xl mb-4">✓</div>
               <h4 className="font-bold text-xl mb-4">Zero Preservatives</h4>
-              <p className="text-gray-400 text-sm font-sans leading-relaxed">No chemicals to artificially extend life. Our flour is alive, meant to be consumed within 30 days.</p>
+              <p className="text-gray-400 text-sm font-sans leading-relaxed">No chemicals to artificially extend life. Our flour is alive, meant to be consumed fresh by your family.</p>
             </div>
             <div className="p-10 border border-white/10 rounded-[2.5rem] bg-white/5">
               <div className="text-[#D4AF37] text-3xl mb-4">✓</div>
@@ -184,7 +185,7 @@ const Home = () => {
             <div className="p-10 border border-white/10 rounded-[2.5rem] bg-white/5">
               <div className="text-[#D4AF37] text-3xl mb-4">✓</div>
               <h4 className="font-bold text-xl mb-4">Milled in Bangalore</h4>
-              <p className="text-gray-400 text-sm font-sans leading-relaxed">A clean, sanitized milling facility right in your neighborhood. We are your local partners in health.</p>
+              <p className="text-gray-400 text-sm font-sans leading-relaxed">A clean, sanitized milling facility right in your neighborhood. We are your local partners in wellness.</p>
             </div>
           </div>
         </div>
@@ -193,7 +194,7 @@ const Home = () => {
       {/* 6. SUBSCRIPTION TIERS */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-20 text-[#3E2723]">Investment in Health</h2>
+          <h2 className="text-4xl font-bold mb-20 text-[#3E2723]">Investment in Family Health</h2>
           <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto text-left">
             <div className="border-2 border-gray-100 p-10 rounded-[3rem] bg-white hover:shadow-xl transition-all">
               <h3 className="text-2xl font-bold mb-2">Standard (5KG)</h3>
@@ -203,7 +204,7 @@ const Home = () => {
             </div>
             <div className="border-4 border-[#D4AF37] p-10 rounded-[3rem] bg-[#FFFDF5] shadow-2xl relative scale-105">
               <div className="absolute top-0 right-0 bg-[#D4AF37] text-white px-8 py-2 rounded-bl-3xl text-xs font-bold uppercase tracking-widest">Recommended</div>
-              <h3 className="text-2xl font-bold mb-2">Family (10KG)</h3>
+              <h3 className="text-2xl font-bold mb-2">Wellness Plan (10KG)</h3>
               <p className="font-sans text-gray-400 mb-8 text-sm italic">2 Deliveries x 5kg for maximum freshness</p>
               <div className="text-5xl font-bold mb-10 text-[#3E2723]">₹720 <span className="text-lg font-normal text-gray-400">/ mo</span></div>
               <button className="w-full py-5 rounded-2xl bg-[#3E2723] text-white font-bold uppercase tracking-widest text-xs">Subscribe & Save</button>
@@ -215,8 +216,8 @@ const Home = () => {
       {/* 7. FOOTER */}
       <footer className="bg-[#3E2723] text-white py-20 px-6 text-center">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-6 italic tracking-tight">Aarahi Foods</h2>
-          <p className="font-sans text-gray-400 mb-12 max-w-lg mx-auto">Crafting Wellness in North Bangalore neighborhoods through cold-milled precision and founder-led quality control.</p>
+          <h2 className="text-4xl font-bold mb-6 italic tracking-tight text-[#D4AF37]">Aarahi Foods</h2>
+          <p className="font-sans text-gray-400 mb-12 max-w-lg mx-auto">Elevating the daily staple through professional management and cold-milled precision.</p>
           <div className="flex flex-wrap justify-center gap-10 text-xs uppercase tracking-[0.3em] text-[#D4AF37] font-bold mb-12">
             <span>Yelahanka</span>
             <span>Sahakara Nagar</span>
