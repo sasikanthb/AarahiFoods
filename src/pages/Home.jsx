@@ -95,15 +95,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 4. FOOTER / CONTACT */}
-      <footer className="bg-[#3E2723] text-white py-12 px-6 text-center">
-        <h2 className="text-3xl font-bold mb-4 italic">Aarahi Foods</h2>
-        <p className="font-sans text-gray-400 mb-8">Crafting Wellness in Yelahanka, Bangalore.</p>
-        <div className="flex justify-center gap-8 text-sm uppercase tracking-widest text-gray-300">
-          <span>FSSAI: 2122xxxxxxxxxx</span>
-          <span>WhatsApp: +91 xxxxxxxxxx</span>
-        </div>
-      </footer>
       {/* --- NEW: THE 24-HOUR PROCESS SECTION --- */}
       <section className="py-20 bg-white border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-6 text-center">
@@ -127,6 +118,15 @@ const Home = () => {
         </div>
       </section>
 
+      {/* 4. FOOTER / CONTACT */}
+      <footer className="bg-[#3E2723] text-white py-12 px-6 text-center">
+        <h2 className="text-3xl font-bold mb-4 italic">Aarahi Foods</h2>
+        <p className="font-sans text-gray-400 mb-8">Crafting Wellness in Yelahanka, Bangalore.</p>
+        <div className="flex justify-center gap-8 text-sm uppercase tracking-widest text-gray-300">
+          <span>FSSAI: 2122xxxxxxxxxx</span>
+          <span>WhatsApp: +91 xxxxxxxxxx</span>
+        </div>
+      </footer>
     </div>
   );
 };
