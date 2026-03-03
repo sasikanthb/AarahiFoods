@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
+import About from './pages/About';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
@@ -19,7 +20,7 @@ function App() {
             {/* Placeholders for other links pointing to Shop for now */}
             <Route path="/byob" element={<Shop />} />
             <Route path="/new-launches" element={<Shop />} />
-            <Route path="/story" element={<Shop />} />
+            <Route path="/about" element={<About />} />
             <Route path="/learn" element={<Shop />} />
           </Routes>
         </main>
