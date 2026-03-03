@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Home as HomeIcon, BookOpen, ShoppingBag } from 'lucide-react';
+import { Home as HomeIcon, BookOpen, ShoppingBag, MessageCircle } from 'lucide-react';
 
 // --- ANIMATION VARIANTS ---
 const floating = {
@@ -198,7 +198,23 @@ const Home = () => {
         </div>
       </footer>
 
-      {/* 6. APP-STYLE BOTTOM NAVIGATION BAR */}
+      {/* 6. WHATSAPP LIVE STATUS (Lifted to bottom-28) */}
+      <motion.a 
+        href="https://wa.me/919741236515" 
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-28 right-6 z-[10000] flex flex-col items-end gap-2"
+      >
+        <div className="bg-white px-3 py-1 rounded-xl shadow-lg border border-gray-100 flex items-center gap-2">
+          <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
+          <span className="text-[9px] font-bold text-gray-500 uppercase tracking-widest">Online Now</span>
+        </div>
+        <div className="bg-[#25D366] text-white p-4 rounded-2xl shadow-2xl flex items-center justify-center active:scale-90 transition-transform">
+          <MessageCircle size={28} />
+        </div>
+      </motion.a>
+
+      {/* 7. APP-STYLE BOTTOM NAVIGATION BAR */}
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-8 py-4 z-[9999] flex justify-between items-center shadow-2xl md:hidden">
         <button className="flex flex-col items-center text-[#3E2723] transition-transform active:scale-95">
           <HomeIcon size={22} strokeWidth={2.5} />
