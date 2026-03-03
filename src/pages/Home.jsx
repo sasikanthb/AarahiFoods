@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Home as HomeIcon, BookOpen, ShoppingBag, MessageCircle } from 'lucide-react';
+import { Home as HomeIcon, Info, Search } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 // --- ANIMATION VARIANTS ---
 const floating = {
@@ -46,7 +47,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-[#FFFDF5] text-[#3E2723] font-serif overflow-x-hidden pb-24">
       
-      {/* 1. HERO SECTION (Starting Model + Background Image 3) */}
+      {/* 1. HERO SECTION */}
       <section className="relative h-[90vh] flex items-center justify-center text-center px-6 bg-[#F5F5DC] overflow-hidden">
         <motion.div 
           initial={{ opacity: 0 }}
@@ -88,7 +89,7 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* 2. THE SCIENCE: ALIVE VS DEAD (Magnetic Highlight Boxes) */}
+      {/* 2. THE SCIENCE: ALIVE VS DEAD */}
       <section className="py-24 bg-[#FCF9F2]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center text-left">
@@ -121,7 +122,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 3. FOUNDER MANIFESTO (Aalekhya Reddy) */}
+      {/* 3. FOUNDER MANIFESTO */}
       <section className="py-24 bg-white border-y border-gray-50 text-left">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div 
@@ -154,7 +155,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 4. THE 24-HOUR OBSESSION TIMELINE (05 - 09 - 04) */}
+      {/* 4. THE 24-HOUR OBSESSION TIMELINE */}
       <section className="py-24 bg-[#FCF9F2]">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold text-[#3E2723] mb-20 italic font-serif">The 24-Hour Obsession</h2>
@@ -198,36 +199,29 @@ const Home = () => {
         </div>
       </footer>
 
-      {/* 6. WHATSAPP LIVE STATUS (Lifted to bottom-28) */}
-      <motion.a 
-        href="https://wa.me/919741236515" 
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-28 right-6 z-[10000] flex flex-col items-end gap-2"
-      >
-        <div className="bg-white px-3 py-1 rounded-xl shadow-lg border border-gray-100 flex items-center gap-2">
-          <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
-          <span className="text-[9px] font-bold text-gray-500 uppercase tracking-widest">Online Now</span>
-        </div>
-        <div className="bg-[#25D366] text-white p-4 rounded-2xl shadow-2xl flex items-center justify-center active:scale-90 transition-transform">
-          <MessageCircle size={28} />
-        </div>
-      </motion.a>
-
-      {/* 7. APP-STYLE BOTTOM NAVIGATION BAR */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-8 py-4 z-[9999] flex justify-between items-center shadow-2xl md:hidden">
-        <button className="flex flex-col items-center text-[#3E2723] transition-transform active:scale-95">
+      {/* 6. APP-STYLE BOTTOM NAVIGATION BAR */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-6 py-3 z-[9999] flex justify-between items-center shadow-[0_-10px_40px_rgba(0,0,0,0.05)] md:hidden">
+        
+        <Link to="/" className="flex flex-col items-center text-[#3E2723] transition-transform active:scale-95">
           <HomeIcon size={22} strokeWidth={2.5} />
-          <span className="text-[10px] font-bold mt-1 uppercase tracking-tighter">Home</span>
-        </button>
+          <span className="text-[9px] font-bold mt-1 uppercase tracking-tighter">Home</span>
+        </Link>
+        
+        <Link to="/about" className="flex flex-col items-center text-gray-400 hover:text-[#3E2723] transition-all active:scale-95">
+          <Info size={22} />
+          <span className="text-[9px] font-bold mt-1 uppercase tracking-tighter">Why Us</span>
+        </Link>
+        
         <button className="flex flex-col items-center text-gray-400 hover:text-[#3E2723] transition-all active:scale-95">
-          <BookOpen size={22} />
-          <span className="text-[10px] font-bold mt-1 uppercase tracking-tighter">Story</span>
+          <Search size={22} />
+          <span className="text-[9px] font-bold mt-1 uppercase tracking-tighter">Search</span>
         </button>
-        <button className="flex flex-col items-center text-gray-400 hover:text-[#3E2723] transition-all active:scale-95">
-          <ShoppingBag size={22} />
-          <span className="text-[10px] font-bold mt-1 uppercase tracking-tighter">Shop</span>
-        </button>
+        
+        <Link to="/shop" className="bg-[#3E2723] text-[#D4AF37] px-4 py-2 rounded-xl flex flex-col items-center shadow-lg active:scale-95 transition-transform">
+          <span className="text-[8px] font-black italic font-serif leading-none">Aarahi</span>
+          <span className="text-[10px] font-black uppercase tracking-tighter">Fresh</span>
+        </Link>
+        
       </div>
 
     </div>
