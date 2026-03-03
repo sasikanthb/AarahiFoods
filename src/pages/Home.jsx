@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Home as HomeIcon, BookOpen, ShoppingBag } from 'lucide-react';
 
 // --- ANIMATION VARIANTS ---
 const floating = {
@@ -43,7 +44,7 @@ const Home = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#FFFDF5] text-[#3E2723] font-serif overflow-x-hidden">
+    <div className="min-h-screen bg-[#FFFDF5] text-[#3E2723] font-serif overflow-x-hidden pb-24">
       
       {/* 1. HERO SECTION (Starting Model + Background Image 3) */}
       <section className="relative h-[90vh] flex items-center justify-center text-center px-6 bg-[#F5F5DC] overflow-hidden">
@@ -196,6 +197,22 @@ const Home = () => {
           © 2026 Aarahi Foods • MBA-Led Quality • Bangalore
         </div>
       </footer>
+
+      {/* 6. APP-STYLE BOTTOM NAVIGATION BAR */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-8 py-4 z-[9999] flex justify-between items-center shadow-2xl md:hidden">
+        <button className="flex flex-col items-center text-[#3E2723] transition-transform active:scale-95">
+          <HomeIcon size={22} strokeWidth={2.5} />
+          <span className="text-[10px] font-bold mt-1 uppercase tracking-tighter">Home</span>
+        </button>
+        <button className="flex flex-col items-center text-gray-400 hover:text-[#3E2723] transition-all active:scale-95">
+          <BookOpen size={22} />
+          <span className="text-[10px] font-bold mt-1 uppercase tracking-tighter">Story</span>
+        </button>
+        <button className="flex flex-col items-center text-gray-400 hover:text-[#3E2723] transition-all active:scale-95">
+          <ShoppingBag size={22} />
+          <span className="text-[10px] font-bold mt-1 uppercase tracking-tighter">Shop</span>
+        </button>
+      </div>
 
     </div>
   );
