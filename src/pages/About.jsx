@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Home as HomeIcon, BookOpen, ShoppingBag } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const About = () => {
+  // Ensure the page starts at the top when navigating here
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-[#FFFDF5] pt-32 pb-24 px-6 font-serif overflow-x-hidden">
+    <div className="min-h-screen bg-[#FFFDF5] pt-32 pb-40 px-6 font-serif overflow-x-hidden">
       <div className="max-w-5xl mx-auto">
         
         {/* 1. THE EMOTIONAL HOOK */}
@@ -107,11 +114,29 @@ const About = () => {
 
         {/* 5. CTA */}
         <div className="text-center">
-           <button className="bg-[#D4AF37] text-[#3E2723] px-14 py-6 rounded-full font-sans font-bold uppercase tracking-[0.2em] text-xs hover:bg-[#3E2723] hover:text-white transition-all shadow-2xl">
-              Bring Freshness Home
-           </button>
+           <Link to="/shop">
+             <button className="bg-[#D4AF37] text-[#3E2723] px-14 py-6 rounded-full font-sans font-bold uppercase tracking-[0.2em] text-xs hover:bg-[#3E2723] hover:text-white transition-all shadow-2xl">
+                Bring Freshness Home
+             </button>
+           </Link>
         </div>
 
+      </div>
+
+      {/* APP-STYLE BOTTOM NAVIGATION BAR */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-8 py-4 z-[9999] flex justify-between items-center shadow-2xl md:hidden">
+        <Link to="/" className="flex flex-col items-center text-gray-400 hover:text-[#3E2723] transition-transform active:scale-95">
+          <HomeIcon size={22} />
+          <span className="text-[10px] font-bold mt-1 uppercase tracking-tighter">Home</span>
+        </Link>
+        <Link to="/about" className="flex flex-col items-center text-[#3E2723] transition-all active:scale-95">
+          <BookOpen size={22} strokeWidth={2.5} />
+          <span className="text-[10px] font-bold mt-1 uppercase tracking-tighter">Story</span>
+        </Link>
+        <Link to="/shop" className="flex flex-col items-center text-gray-400 hover:text-[#3E2723] transition-all active:scale-95">
+          <ShoppingBag size={22} />
+          <span className="text-[10px] font-bold mt-1 uppercase tracking-tighter">Shop</span>
+        </Link>
       </div>
     </div>
   );
