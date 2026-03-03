@@ -35,7 +35,8 @@ const App = () => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={openWhatsApp}
-        className="fixed bottom-6 right-6 z-[999] cursor-pointer flex items-center gap-3 bg-white p-2 pr-6 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.2)] border border-[#D4AF37]/20"
+        // CHANGED: bottom-32 to lift it above the nav bar, z-[10000] to keep it in front
+        className="fixed bottom-32 md:bottom-8 right-4 md:right-6 z-[10000] cursor-pointer flex items-center gap-3 bg-white p-2 pr-5 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-[#D4AF37]/20"
       >
         {/* Animated Green Circle */}
         <div className="relative flex items-center justify-center">
