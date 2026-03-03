@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-[#FFFDF5] text-[#3E2723] font-serif overflow-x-hidden">
       
-      {/* 1. THE CLASSIC HERO SECTION */}
+      {/* 1. HERO SECTION */}
       <section className="relative h-[90vh] flex items-center justify-center text-center px-6 bg-[#F5F5DC]">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -13,61 +13,85 @@ const Home = () => {
           transition={{ duration: 0.8 }}
           className="max-w-4xl"
         >
-          <span className="uppercase tracking-[0.3em] text-[10px] md:text-xs mb-4 block text-[#8B4513] font-sans font-bold">
+          <span className="uppercase tracking-[0.3em] text-[10px] md:text-xs mb-6 block text-[#8B4513] font-sans font-bold">
             Milled in Bangalore • Delivered in 24 Hours
           </span>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Stop Eating <span className="italic text-[#D4AF37]">"Dead"</span> Flour.
+          <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
+            Stop Eating <br />
+            <span className="italic text-[#D4AF37] font-light">"Dead"</span> Flour.
           </h1>
-          <p className="text-xl md:text-2xl mb-8 font-sans text-gray-700 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl mb-12 font-sans text-gray-700 max-w-2xl mx-auto">
             Slow-milled Sharbati Wheat. Ground at 30°C to preserve life. <br />
             MBA-led precision meets traditional stone-milling.
           </p>
-          <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <button className="bg-[#3E2723] text-white px-10 py-4 rounded-full text-lg hover:bg-transparent hover:text-[#3E2723] border-2 border-[#3E2723] transition-all font-sans font-bold">
+          <div className="flex flex-col md:flex-row gap-6 justify-center">
+            <motion.button 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-[#3E2723] text-white px-12 py-5 rounded-full text-lg font-bold border-2 border-[#3E2723] transition-all shadow-xl"
+            >
               Claim Founder's Kit
-            </button>
-            <button className="border-2 border-[#3E2723] px-10 py-4 rounded-full text-lg hover:bg-[#3E2723] hover:text-white transition-all font-sans font-bold">
+            </motion.button>
+            <button className="border-2 border-[#3E2723] px-12 py-5 rounded-full text-lg font-bold hover:bg-[#3E2723] hover:text-white transition-all">
               Explore Subscriptions
             </button>
           </div>
         </motion.div>
       </section>
 
-      {/* 2. THE PURITY GRID (01-04) */}
-      <section className="py-20 bg-white border-y border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-4 text-[#3E2723]">The 24-Hour Freshness Cycle</h2>
-          <p className="font-sans text-gray-500 mb-16 italic text-lg">How we ensure your family never eats old flour again.</p>
-          
-          <div className="grid md:grid-cols-4 gap-8 text-left">
-            {[
-              { step: "01", title: "Selection", desc: "Sourcing only premium MP Sharbati grains with perfect moisture levels." },
-              { step: "02", title: "Cold-Milling", desc: "Slow-stone grinding at strictly under 30°C to keep nutrients alive." },
-              { step: "03", title: "Quality Check", desc: "MBA-led precision ensures every batch meets our FSSAI+ standards." },
-              { step: "04", title: "Delivery", desc: "At your doorstep in Bangalore within 24 hours of milling." }
-            ].map((item, index) => (
-              <div key={index} className="relative p-8 bg-[#FDFBF7] rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                <span className="text-5xl font-bold text-[#D4AF37]/10 absolute top-4 right-6">{item.step}</span>
-                <h4 className="text-xl font-bold mb-3 text-[#3E2723]">{item.title}</h4>
-                <p className="font-sans text-sm text-gray-600 leading-relaxed">{item.desc}</p>
+      {/* 2. THE COMPARISON: ALIVE VS DEAD */}
+      <section className="py-24 bg-[#FCF9F2]">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#3E2723] mb-6">The Science of Freshness</h2>
+            <div className="h-1 w-24 bg-[#D4AF37] mx-auto"></div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="space-y-10 font-sans">
+              <div className="border-l-4 border-red-200 pl-8">
+                <h4 className="text-red-800 font-bold uppercase text-[10px] tracking-[0.2em] mb-2">Industrial Flour</h4>
+                <p className="text-[#3E2723] font-serif text-xl italic mb-3">"Dead Calories"</p>
+                <ul className="text-sm text-gray-500 space-y-2">
+                  <li>• High-speed steel rollers (Heating up to 90°C)</li>
+                  <li>• Bleached and stripped of natural oils for shelf-life</li>
+                  <li>• Sits in plastic bags for 3-6 months</li>
+                </ul>
               </div>
-            ))}
+
+              <div className="border-l-4 border-[#D4AF37] pl-8 bg-white py-8 rounded-r-[2rem] shadow-xl">
+                <h4 className="text-[#D4AF37] font-bold uppercase text-[10px] tracking-[0.2em] mb-2">Aarahi Fresh</h4>
+                <p className="text-[#3E2723] font-serif text-xl font-bold mb-3">"Living Nutrition"</p>
+                <ul className="text-sm text-[#3E2723] space-y-2">
+                  <li>• Slow Stone-Grinding (Always under 30°C)</li>
+                  <li>• 100% Wheat Germ & Bran oils kept alive</li>
+                  <li>• Milled only after you order. Delivered in 24h.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="relative rounded-full aspect-square bg-white shadow-2xl flex items-center justify-center p-12 border-[16px] border-[#F5F5DC]">
+              <div className="text-center">
+                <span className="text-6xl mb-4 block">🌾</span>
+                <h3 className="text-2xl font-bold text-[#3E2723]">Pure Sharbati</h3>
+                <p className="font-sans text-xs text-gray-400 mt-2 uppercase tracking-[0.2em]">Micro-milled Excellence</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 3. THE FOUNDER'S DIRECT OATH (Aalekhya Reddy) */}
-      <section className="py-24 bg-white overflow-hidden">
+      {/* 3. THE FOUNDER'S MANIFESTO */}
+      <section className="py-24 bg-white border-y border-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="bg-[#F5F5DC] rounded-[3rem] p-12 md:p-20 relative flex flex-col md:flex-row items-center gap-12 border border-[#D4AF37]/20 shadow-sm">
             <div className="md:w-3/5">
-              <span className="text-[#D4AF37] font-sans font-bold uppercase tracking-widest text-xs mb-4 block">A Startup Built on Trust</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#3E2723] mb-6 leading-tight">
+              <span className="text-[#D4AF37] font-sans font-bold uppercase tracking-widest text-xs mb-4 block">The Founder's Manifesto</span>
+              <h2 className="text-4xl font-bold text-[#3E2723] mb-6 leading-tight">
                 "I couldn't find flour I trusted for my family's health. As an MBA, I decided to fix the supply chain myself."
               </h2>
               <p className="text-gray-700 font-sans italic mb-8 text-lg leading-relaxed">
-                "Most brands sacrifice nutrition for shelf-life. At Aarahi, we've applied professional management to traditional stone-milling. We aren't a factory; we are a dedicated kitchen for Bangalore families."
+                "Most brands sacrifice nutrition for shelf-life. At Aarahi, we've applied professional management to traditional stone-milling. We aren't a factory; we are a dedicated kitchen for your family, milling only what is needed for the day."
               </p>
               <div className="flex flex-col">
                 <div className="text-[#3E2723] font-bold text-2xl font-serif">Aalekhya Reddy</div>
@@ -75,7 +99,7 @@ const Home = () => {
               </div>
             </div>
             <div className="md:w-2/5 flex justify-center">
-               <div className="w-72 h-72 rounded-full bg-white border-8 border-white shadow-2xl flex items-center justify-center italic text-gray-400 overflow-hidden text-center p-8">
+               <div className="w-72 h-72 rounded-full bg-white border-8 border-white shadow-2xl flex items-center justify-center italic text-gray-300 overflow-hidden text-center p-8">
                  [Founder Photo: Aalekhya Reddy]
                </div>
             </div>
@@ -83,14 +107,61 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 4. SUBSCRIPTION TIERS */}
+      {/* 4. THE 24-HOUR OBSESSION TIMELINE (05-09-04) */}
+      <section className="py-24 bg-[#FCF9F2]">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-4xl font-bold text-[#3E2723] mb-24 text-center italic font-serif tracking-tight">The 24-Hour Obsession</h2>
+          
+          <div className="relative">
+            {/* Central Vertical Line */}
+            <div className="absolute left-5 md:left-1/2 h-full w-0.5 bg-[#D4AF37]/30 -translate-x-1/2"></div>
+
+            <div className="space-y-24">
+              {/* Step 05 AM */}
+              <div className="relative flex flex-col md:flex-row items-center">
+                <div className="flex w-full md:w-1/2 justify-start md:justify-end md:pr-16">
+                  <div className="w-full md:w-80 p-8 bg-white rounded-3xl shadow-sm border border-gray-100 relative z-10">
+                    <div className="font-bold text-[#3E2723] mb-2 font-serif text-xl">05 AM: The Selection</div>
+                    <p className="text-sm text-gray-500 font-sans leading-relaxed">We inspect Sharbati grain moisture levels. Only grains with &lt;12% moisture are approved for the day's milling.</p>
+                  </div>
+                </div>
+                <div className="absolute left-5 md:left-1/2 w-12 h-12 bg-[#FFFDF5] border-2 border-[#D4AF37] rounded-full flex items-center justify-center font-bold text-[#D4AF37] -translate-x-1/2 z-20 shadow-sm">05</div>
+              </div>
+
+              {/* Step 09 AM */}
+              <div className="relative flex flex-col md:flex-row items-center">
+                <div className="absolute left-5 md:left-1/2 w-12 h-12 bg-[#FFFDF5] border-2 border-[#D4AF37] rounded-full flex items-center justify-center font-bold text-[#D4AF37] -translate-x-1/2 z-20 shadow-sm">09</div>
+                <div className="flex w-full md:w-1/2 md:ml-auto justify-start md:pl-16">
+                  <div className="w-full md:w-80 p-8 bg-white rounded-3xl shadow-sm border border-gray-100 relative z-10">
+                    <div className="font-bold text-[#3E2723] mb-2 font-serif text-xl">09 AM: The Slow-Grind</div>
+                    <p className="text-sm text-gray-500 font-sans leading-relaxed">Stone chakki starts. We monitor the temperature every 15 minutes to ensure it never crosses 30°C.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Step 04 PM */}
+              <div className="relative flex flex-col md:flex-row items-center">
+                <div className="flex w-full md:w-1/2 justify-start md:justify-end md:pr-16">
+                  <div className="w-full md:w-80 p-8 bg-white rounded-3xl shadow-sm border border-gray-100 relative z-10">
+                    <div className="font-bold text-[#3E2723] mb-2 font-serif text-xl">04 PM: Delivery Run</div>
+                    <p className="text-sm text-gray-500 font-sans leading-relaxed">Your Atta is packed in breathable bags and dispatched across Bangalore immediately.</p>
+                  </div>
+                </div>
+                <div className="absolute left-5 md:left-1/2 w-12 h-12 bg-[#FFFDF5] border-2 border-[#D4AF37] rounded-full flex items-center justify-center font-bold text-[#D4AF37] -translate-x-1/2 z-20 shadow-sm">04</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. SUBSCRIPTION TIERS */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold mb-20 text-[#3E2723]">Investment in Family Health</h2>
           <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto text-left">
             <div className="border-2 border-gray-100 p-10 rounded-[3rem] bg-white hover:shadow-xl transition-all">
               <h3 className="text-2xl font-bold mb-2">Standard (5KG)</h3>
-              <p className="font-sans text-gray-400 mb-8 text-sm italic">Perfect for couples and small families</p>
+              <p className="font-sans text-gray-400 mb-8 text-sm italic">Ideal for smaller families</p>
               <div className="text-5xl font-bold mb-10 text-[#3E2723]">₹390 <span className="text-lg font-normal text-gray-400">/ mo</span></div>
               <button className="w-full py-5 rounded-2xl border-2 border-[#3E2723] font-bold uppercase tracking-widest text-xs font-sans">Buy Once</button>
             </div>
@@ -105,7 +176,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 5. FOOTER */}
+      {/* 6. FOOTER */}
       <footer className="bg-[#3E2723] text-white py-20 px-6 text-center">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold mb-6 italic tracking-tight text-[#D4AF37]">Aarahi Foods</h2>
