@@ -1,82 +1,118 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaWhatsapp, FaShippingFast, FaCheckCircle } from 'react-icons/fa';
-import attaBag from '../assets/images/Pic1.png';
+import { FaWhatsapp, FaCheckCircle, FaLeaf, FaTruckLoading } from 'react-icons/fa';
 
 const Shop = () => {
-  const whatsappNumber = "9741236515"; // REPLACE THIS WITH YOUR BUSINESS WHATSAPP
+  const whatsappNumber = "91XXXXXXXXXX"; // Replace with your actual number
 
-  const products = [
+  const plans = [
     {
-      id: 1,
-      name: "Aarahi Starter Pack (5KG)",
+      name: "Standard Freshness",
+      weight: "5KG",
       price: "390",
-      description: "Milled-to-order Sharbati Atta. Best for trying the Aarahi difference.",
-      features: ["Milled at 30°C", "24h Delivery"]
+      description: "Perfect for couples or small families. Milled on demand.",
+      features: ["Single 5kg Breathable Bag", "Traditional Stone-Milling", "24h Doorstep Delivery", "FSSAI Grade Quality"],
+      recommended: false
     },
     {
-      id: 2,
-      name: "Family Subscription (10KG)",
+      name: "Family Wellness Subscription",
+      weight: "10KG",
       price: "720",
-      oldPrice: "780",
-      description: "Our Best Seller. Includes 2 deliveries of 5KG to ensure peak freshness.",
-      features: ["Free Wooden Scoop", "Free Atta Cookies", "Priority Milling Slot"],
-      featured: true
+      description: "Our most popular startup plan. Maximum nutrition for kids & elders.",
+      features: ["Two 5kg Deliveries (Freshness x2)", "Free Handcrafted Wooden Scoop", "Priority Milling Slots", "Monthly Subscription Savings"],
+      recommended: true
     }
   ];
 
-  const openWhatsApp = (pName) => {
-    const msg = `Hi Aarahi! I want to order the ${pName}. Please share payment details.`;
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+  const handleOrder = (plan) => {
+    const message = `Hi Aarahi Foods! I want to book a milling slot for the ${plan.name} (${plan.weight}). Please share payment details and next available delivery date for my neighborhood.`;
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   return (
-    <div className="min-h-screen bg-[#FFFDF5] pt-32 pb-20 px-6 font-serif">
-      <div className="max-w-6xl mx-auto text-center">
-        <h1 className="text-5xl font-bold text-[#3E2723] mb-4">The Freshness Store</h1>
-        <p className="text-gray-600 font-sans mb-12 italic text-lg">Direct from our Mill to your Kitchen in North Bangalore.</p>
+    <div className="min-h-screen bg-[#FFFDF5] pt-24 pb-20 font-serif">
+      <div className="max-w-7xl mx-auto px-6">
+        
+        {/* Header Section */}
+        <div className="text-center mb-16">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-5xl font-bold text-[#3E2723] mb-4"
+          >
+            Freshness on Demand
+          </motion.h1>
+          <p className="font-sans text-gray-600 max-w-2xl mx-auto italic">
+            "We don't stock flour. We stock grain. Your milling starts only after you book your slot."
+          </p>
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-          {products.map((p) => (
-            <motion.div 
-              key={p.id}
-              whileHover={{ y: -5 }}
-              className={`p-10 rounded-[40px] border-2 text-left relative ${p.featured ? 'border-[#D4AF37] bg-white shadow-2xl' : 'border-gray-100 bg-white/50'}`}
-            >
-              {p.featured && <div className="absolute -top-4 left-10 bg-[#D4AF37] text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Most Popular</div>}
-              
-              <img src={attaBag} alt="Aarahi Atta" className="w-40 mb-6 drop-shadow-2xl" />
-              <h3 className="text-2xl font-bold text-[#3E2723] mb-2">{p.name}</h3>
-              <p className="font-sans text-gray-500 mb-6 text-sm">{p.description}</p>
-              
-              <div className="flex items-baseline gap-2 mb-8">
-                <span className="text-4xl font-bold text-[#3E2723]">₹{p.price}</span>
-                {p.oldPrice && <span className="text-xl text-gray-400 line-through">₹{p.oldPrice}</span>}
+        {/* Startup Trust Banner */}
+        <div className="grid md:grid-cols-3 gap-6 mb-20">
+          {[
+            { icon: <FaLeaf />, title: "100% Sharbati", desc: "No blending with cheaper wheat." },
+            { icon: <FaTruckLoading />, title: "Milled-to-Order", desc: "Zero warehouse sitting time." },
+            { icon: <FaCheckCircle />, title: "Route-Based Delivery", desc: "North Bangalore optimized." }
+          ].map((item, i) => (
+            <div key={i} className="flex items-center gap-4 bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+              <div className="text-[#D4AF37] text-2xl">{item.icon}</div>
+              <div className="font-sans">
+                <div className="font-bold text-[#3E2723] text-sm">{item.title}</div>
+                <div className="text-xs text-gray-500">{item.desc}</div>
               </div>
+            </div>
+          ))}
+        </div>
 
-              <ul className="mb-10 space-y-3">
-                {p.features.map(f => (
-                  <li key={f} className="flex items-center gap-2 font-sans text-sm text-gray-700">
-                    <FaCheckCircle className="text-[#81C784]" /> {f}
+        {/* Pricing Cards */}
+        <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+          {plans.map((plan, index) => (
+            <motion.div 
+              key={index}
+              whileHover={{ y: -10 }}
+              className={`relative bg-white p-10 rounded-[3rem] border-2 ${plan.recommended ? 'border-[#D4AF37] shadow-2xl scale-105' : 'border-gray-100 shadow-lg'}`}
+            >
+              {plan.recommended && (
+                <div className="absolute top-0 right-10 bg-[#D4AF37] text-white px-6 py-2 rounded-b-2xl font-sans text-xs font-bold uppercase tracking-widest">
+                  Best for Health
+                </div>
+              )}
+              
+              <h3 className="text-2xl font-bold text-[#3E2723] mb-2">{plan.name}</h3>
+              <div className="text-4xl font-bold text-[#D4AF37] mb-6">
+                ₹{plan.price} <span className="text-lg font-normal text-gray-400">/ {plan.weight}</span>
+              </div>
+              
+              <p className="font-sans text-gray-500 text-sm mb-8 leading-relaxed">
+                {plan.description}
+              </p>
+
+              <ul className="space-y-4 mb-10">
+                {plan.features.map((feature, i) => (
+                  <li key={i} className="flex items-center gap-3 font-sans text-sm text-[#3E2723]">
+                    <FaCheckCircle className="text-[#D4AF37] shrink-0" />
+                    {feature}
                   </li>
                 ))}
               </ul>
 
               <button 
-                onClick={() => openWhatsApp(p.name)}
-                className={`w-full py-5 rounded-2xl flex items-center justify-center gap-3 font-bold text-lg transition-all shadow-lg ${p.featured ? 'bg-[#3E2723] text-white hover:bg-[#25D366]' : 'bg-white border-2 border-[#3E2723] text-[#3E2723] hover:bg-gray-50'}`}
+                onClick={() => handleOrder(plan)}
+                className={`w-full py-5 rounded-2xl flex items-center justify-center gap-3 font-bold transition-all ${plan.recommended ? 'bg-[#3E2723] text-white' : 'border-2 border-[#3E2723] text-[#3E2723]'}`}
               >
-                <FaWhatsapp size={24} />
-                Order on WhatsApp
+                <FaWhatsapp className="text-xl" />
+                Book Milling Slot
               </button>
             </motion.div>
           ))}
         </div>
 
-        {/* TRUST FOOTER */}
-        <div className="mt-16 flex flex-wrap justify-center gap-8 opacity-70">
-          <div className="flex items-center gap-2 font-sans text-sm"><FaShippingFast /> Free Delivery in Yelahanka</div>
-          <div className="flex items-center gap-2 font-sans text-sm"><FaCheckCircle /> FSSAI Certified</div>
+        {/* Startup Quality Note */}
+        <div className="mt-24 text-center border-t border-gray-100 pt-12">
+          <p className="font-sans text-xs text-gray-400 uppercase tracking-[0.4em] mb-4">Our Commitment</p>
+          <p className="max-w-3xl mx-auto font-sans text-sm text-gray-500 leading-relaxed">
+            As a boutique food startup, we prioritize quality over quantity. If we reach our daily milling capacity, we will queue your order for the next available 24-hour cycle. We never rush the stones.
+          </p>
         </div>
       </div>
     </div>
