@@ -1,11 +1,26 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-// Defined Animations for that Premium Startup feel
+// --- ANIMATION VARIANTS ---
 const floating = {
   animate: {
-    y: [0, -15, 0],
-    transition: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+    y: [0, -20, 0],
+    transition: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+  }
+};
+
+const gentleSway = {
+  animate: {
+    rotate: [0, 1, -1, 0],
+    scale: [1, 1.02, 1],
+    transition: { duration: 5, repeat: Infinity, ease: "easeInOut" }
+  }
+};
+
+const microShake = {
+  whileHover: {
+    x: [0, -2, 2, -2, 2, 0],
+    transition: { duration: 0.4 }
   }
 };
 
@@ -13,221 +28,171 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-[#FFFDF5] text-[#3E2723] font-serif overflow-x-hidden">
       
-      {/* 1. HERO SECTION */}
-      <section className="relative h-[95vh] flex items-center justify-center text-center px-6 bg-[#F5F5DC]">
+      {/* 1. HERO SECTION WITH IMAGE 3 (DUSTING FLOUR) */}
+      <section className="relative h-screen flex items-center justify-center px-6 overflow-hidden bg-black">
+        {/* Background Image with breathing effect */}
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="max-w-4xl relative z-10"
+          initial={{ scale: 1.1, opacity: 0 }}
+          animate={{ scale: 1, opacity: 0.6 }}
+          transition={{ duration: 2 }}
+          className="absolute inset-0 z-0"
         >
-          <span className="uppercase tracking-[0.3em] text-[10px] md:text-xs mb-6 block text-[#8B4513] font-sans font-bold">
-            Milled in Bangalore • Delivered in 24 Hours
-          </span>
-          
-          <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-[1.1]">
-            Stop Eating <br />
-            <span className="italic text-[#D4AF37] font-light">"Dead"</span> Flour.
-          </h1>
-          
-          <p className="text-xl md:text-2xl mb-12 font-sans text-gray-700 max-w-2xl mx-auto leading-relaxed">
-            Slow-milled Sharbati Wheat. Ground at 30°C to preserve the soul of the grain. <br />
-            MBA-led precision meets traditional stone-milling.
-          </p>
-          
-          <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              animate={{ 
-                boxShadow: ["0px 0px 0px rgba(212, 175, 55, 0)", "0px 0px 25px rgba(212, 175, 55, 0.4)", "0px 0px 0px rgba(212, 175, 55, 0)"] 
-              }}
-              transition={{ repeat: Infinity, duration: 3 }}
-              className="bg-[#3E2723] text-white px-12 py-5 rounded-full text-lg font-bold border-2 border-[#3E2723] transition-all shadow-xl"
-            >
-              Claim Founder's Kit
-            </motion.button>
-            <button className="border-2 border-[#3E2723] px-12 py-5 rounded-full text-lg font-bold hover:bg-[#3E2723] hover:text-white transition-all font-sans">
-              Explore Subscriptions
-            </button>
-          </div>
+          <img 
+            src="/Aarahi-Image-3.jpg" 
+            alt="Hand dusting flour" 
+            className="w-full h-full object-cover"
+          />
         </motion.div>
+
+        <div className="max-w-4xl relative z-10 text-center">
+          <motion.span 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="uppercase tracking-[0.4em] text-xs mb-6 block text-[#D4AF37] font-sans font-bold"
+          >
+            A Bangalore Food Startup
+          </motion.span>
+          
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-6xl md:text-8xl font-bold mb-8 leading-tight text-white"
+          >
+            Alive <span className="italic text-[#D4AF37] font-light">Nutrition.</span>
+          </h1 >
+          
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="text-xl md:text-2xl mb-12 font-sans text-gray-200 max-w-2xl mx-auto leading-relaxed"
+          >
+            Milled today. On your table tomorrow. <br />
+            MBA-led precision meets traditional stone-milling.
+          </motion.p>
+          
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}>
+            <button className="bg-[#D4AF37] text-[#3E2723] px-12 py-5 rounded-full text-lg font-bold hover:bg-white transition-all shadow-2xl shadow-[#D4AF37]/20 uppercase tracking-widest text-sm">
+              Join the Subscription
+            </button>
+          </motion.div>
+        </div>
       </section>
 
-      {/* 2. THE COMPARISON: WHY AARAHI? (WITH FLOATING IMAGE) */}
-      <section className="py-24 bg-[#FCF9F2]">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#3E2723] mb-6 tracking-tight font-serif">The Science of Freshness</h2>
-            <div className="h-1 w-24 bg-[#D4AF37] mx-auto"></div>
+      {/* 2. COMPARISON SECTION WITH IMAGE 2 (FLOATING BAG) */}
+      <section className="py-32 bg-[#FCF9F2]">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+          <div className="order-2 md:order-1">
+             <h2 className="text-4xl md:text-5xl font-bold mb-10 leading-tight">Why we are <br/><span className="text-[#D4AF37] italic">different.</span></h2>
+             <div className="space-y-8">
+                <div className="bg-white p-8 rounded-3xl shadow-xl border-l-8 border-[#D4AF37]">
+                  <h4 className="font-bold text-xl mb-2 font-sans uppercase text-xs tracking-widest">Cold-Milling</h4>
+                  <p className="text-gray-600 leading-relaxed">We mill at 28°C. Most industrial mills hit 90°C, burning the life out of your food.</p>
+                </div>
+                <div className="bg-white p-8 rounded-3xl shadow-sm border-l-8 border-gray-100">
+                  <h4 className="font-bold text-xl mb-2 font-sans uppercase text-xs tracking-widest text-gray-400">Freshness</h4>
+                  <p className="text-gray-400 leading-relaxed">Milled only after your order. No warehouses. No oxidation.</p>
+                </div>
+             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div className="space-y-10 font-sans">
-              <div className="border-l-4 border-red-200 pl-8">
-                <h4 className="text-red-800 font-bold uppercase text-[10px] tracking-[0.2em] mb-2 font-sans">Industrial Flour</h4>
-                <p className="text-[#3E2723] font-serif text-xl italic mb-3">"Dead Calories"</p>
-                <ul className="text-sm text-gray-500 space-y-2">
-                  <li>• High-speed steel rollers (Heating up to 90°C)</li>
-                  <li>• Bleached and stripped of natural oils for shelf-life</li>
-                  <li>• Sits in plastic bags for 3-6 months</li>
-                </ul>
-              </div>
-
-              <div className="border-l-4 border-[#D4AF37] pl-8 bg-white py-8 rounded-r-[2rem] shadow-xl">
-                <h4 className="text-[#D4AF37] font-bold uppercase text-[10px] tracking-[0.2em] mb-2 font-sans">Aarahi Fresh</h4>
-                <p className="text-[#3E2723] font-serif text-xl font-bold mb-3">"Living Nutrition"</p>
-                <ul className="text-sm text-[#3E2723] space-y-2">
-                  <li>• Slow Stone-Grinding (Always under 30°C)</li>
-                  <li>• 100% Wheat Germ & Bran oils kept alive</li>
-                  <li>• Milled only after you order. Delivered in 24h.</li>
-                </ul>
+          {/* THE FLOATING BAG IMAGE */}
+          <motion.div 
+            variants={floating}
+            animate="animate"
+            className="order-1 md:order-2 flex justify-center"
+          >
+            <div className="relative p-4 bg-white rounded-[4rem] shadow-2xl rotate-3">
+              <img 
+                src="/Aarahi-Image-2.jpg" 
+                alt="Fresh Atta Bag" 
+                className="w-full max-w-sm rounded-[3rem] object-cover"
+              />
+              <div className="absolute -bottom-6 -left-6 bg-[#D4AF37] text-white p-6 rounded-3xl font-bold text-center shadow-xl">
+                 <span className="block text-2xl">100%</span>
+                 <span className="text-xs uppercase tracking-widest">Sharbati</span>
               </div>
             </div>
+          </motion.div>
+        </div>
+      </section>
 
-            {/* FLOATING IMAGE COMPONENT */}
+      {/* 3. FOUNDER MANIFESTO WITH IMAGE SHAKE */}
+      <section className="py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="bg-[#F5F5DC] rounded-[4rem] p-12 md:p-24 flex flex-col md:flex-row items-center gap-16 border border-[#D4AF37]/10">
+            <div className="md:w-3/5">
+               <h2 className="text-4xl font-bold mb-8 leading-tight italic">
+                "As an MBA, I decided to fix the supply chain myself. No more dead calories for Bangalore families."
+               </h2>
+               <p className="text-xl font-sans text-gray-600 mb-8 leading-relaxed">
+                 Aarahi is where maternal care meets professional precision. We are a kitchen for the city, not a factory.
+               </p>
+               <div>
+                  <p className="font-bold text-2xl">Aalekhya Reddy</p>
+                  <p className="text-[#D4AF37] font-bold uppercase tracking-widest text-sm">Founder, Aarahi Foods (MBA)</p>
+               </div>
+            </div>
+
             <motion.div 
-              variants={floating}
-              animate="animate"
-              className="relative rounded-full aspect-square bg-white shadow-2xl flex items-center justify-center p-12 border-[16px] border-[#F5F5DC]"
+              variants={microShake}
+              whileHover="whileHover"
+              className="md:w-2/5 cursor-pointer"
             >
-              <div className="text-center">
-                <span className="text-6xl mb-4 block">🌾</span>
-                <h3 className="text-2xl font-bold text-[#3E2723]">Pure Sharbati</h3>
-                <p className="font-sans text-xs text-gray-400 mt-2 uppercase tracking-[0.2em]">Micro-milled Excellence</p>
+              <div className="aspect-square bg-white rounded-full border-[15px] border-white shadow-2xl overflow-hidden flex items-center justify-center italic text-gray-300">
+                [Aalekhya Photo Placeholder]
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* 3. THE FOUNDER'S DIRECT OATH (Aalekhya Reddy) WITH HOVER SHAKE */}
-      <section className="py-24 bg-white overflow-hidden border-y border-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="bg-[#F5F5DC] rounded-[3rem] p-12 md:p-20 relative flex flex-col md:flex-row items-center gap-12 border border-[#D4AF37]/20 shadow-sm">
-            <div className="md:w-3/5">
-              <span className="text-[#D4AF37] font-sans font-bold uppercase tracking-widest text-xs mb-4 block">The Founder's Manifesto</span>
-              <h2 className="text-4xl font-bold text-[#3E2723] mb-6 leading-tight">
-                "I couldn't find flour I trusted for my family's health. As an MBA, I decided to fix the supply chain myself."
-              </h2>
-              <p className="text-gray-700 font-sans italic mb-8 text-lg leading-relaxed">
-                "Most brands sacrifice nutrition for shelf-life. At Aarahi, we've applied professional management to traditional stone-milling. We aren't a factory; we are a dedicated kitchen for your family, milling only what is needed for the day."
-              </p>
-              <div className="flex flex-col">
-                <div className="text-[#3E2723] font-bold text-2xl font-serif">Aalekhya Reddy</div>
-                <div className="text-xs uppercase tracking-widest text-[#D4AF37] font-sans font-bold mt-1">Founder, Aarahi Foods (MBA)</div>
-              </div>
-            </div>
-            
-            <div className="md:w-2/5 flex justify-center">
-               <motion.div 
-                 whileHover={{ x: [0, -2, 2, -2, 2, 0] }}
-                 className="w-72 h-72 rounded-full bg-white border-8 border-white shadow-2xl flex items-center justify-center italic text-gray-300 overflow-hidden text-center p-8 cursor-pointer"
-               >
-                 [Founder Photo: Aalekhya Reddy]
-               </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 4. 24-HOUR OBSESSION WITH IMAGE 1 (SWAYING GRAIN) */}
+      <section className="py-32 bg-[#FCF9F2] relative overflow-hidden">
+        {/* SWAYING GRAIN BACKGROUND */}
+        <motion.div 
+          variants={gentleSway}
+          animate="animate"
+          className="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none"
+        >
+          <img src="/Aarahi-Image.jpg" className="w-full h-full object-cover" />
+        </motion.div>
 
-      {/* 4. THE 24-HOUR OBSESSION TIMELINE (05-09-04) */}
-      <section className="py-24 bg-[#FCF9F2]">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-[#3E2723] mb-24 text-center italic font-serif tracking-tight">The 24-Hour Obsession</h2>
-          
-          <div className="relative">
-            <div className="absolute left-5 md:left-1/2 h-full w-0.5 bg-[#D4AF37]/30 -translate-x-1/2"></div>
-
-            <div className="space-y-24">
-              <div className="relative flex flex-col md:flex-row items-center">
-                <div className="flex w-full md:w-1/2 justify-start md:justify-end md:pr-16">
-                  <div className="w-full md:w-80 p-8 bg-white rounded-3xl shadow-sm border border-gray-100 relative z-10 hover:shadow-md transition-shadow">
-                    <div className="font-bold text-[#3E2723] mb-2 font-serif text-xl">05 AM: The Selection</div>
-                    <p className="text-sm text-gray-500 font-sans leading-relaxed">We inspect Sharbati grain moisture levels. Only grains with &lt;12% moisture are approved for the day's milling.</p>
-                  </div>
+        <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
+          <h2 className="text-5xl font-bold mb-20 italic">The 24-Hour Obsession</h2>
+          <div className="space-y-16 text-left">
+             <div className="flex gap-10 items-center">
+                <div className="w-20 h-20 rounded-full border-2 border-[#D4AF37] flex items-center justify-center font-bold text-[#D4AF37] text-2xl shrink-0 bg-white">05</div>
+                <div>
+                   <h4 className="text-2xl font-bold mb-2">AM: The Selection</h4>
+                   <p className="font-sans text-gray-500">Inspecting premium MP Sharbati for moisture and purity.</p>
                 </div>
-                <div className="absolute left-5 md:left-1/2 w-12 h-12 bg-[#FFFDF5] border-2 border-[#D4AF37] rounded-full flex items-center justify-center font-bold text-[#D4AF37] -translate-x-1/2 z-20 shadow-sm">05</div>
-              </div>
-
-              <div className="relative flex flex-col md:flex-row items-center">
-                <div className="absolute left-5 md:left-1/2 w-12 h-12 bg-[#FFFDF5] border-2 border-[#D4AF37] rounded-full flex items-center justify-center font-bold text-[#D4AF37] -translate-x-1/2 z-20 shadow-sm">09</div>
-                <div className="flex w-full md:w-1/2 md:ml-auto justify-start md:pl-16">
-                  <div className="w-full md:w-80 p-8 bg-white rounded-3xl shadow-sm border border-gray-100 relative z-10 hover:shadow-md transition-shadow">
-                    <div className="font-bold text-[#3E2723] mb-2 font-serif text-xl">09 AM: The Slow-Grind</div>
-                    <p className="text-sm text-gray-500 font-sans leading-relaxed">Stone chakki starts. We monitor the temperature every 15 minutes to ensure it never crosses 30°C.</p>
-                  </div>
+             </div>
+             <div className="flex gap-10 items-center">
+                <div className="w-20 h-20 rounded-full border-2 border-[#D4AF37] flex items-center justify-center font-bold text-[#D4AF37] text-2xl shrink-0 bg-white">09</div>
+                <div>
+                   <h4 className="text-2xl font-bold mb-2">AM: Cold-Milling</h4>
+                   <p className="font-sans text-gray-500">Slow stone-milling at 28°C to prevent nutrient burn.</p>
                 </div>
-              </div>
-
-              <div className="relative flex flex-col md:flex-row items-center">
-                <div className="flex w-full md:w-1/2 justify-start md:justify-end md:pr-16">
-                  <div className="w-full md:w-80 p-8 bg-white rounded-3xl shadow-sm border border-gray-100 relative z-10 hover:shadow-md transition-shadow">
-                    <div className="font-bold text-[#3E2723] mb-2 font-serif text-xl">04 PM: Delivery Run</div>
-                    <p className="text-sm text-gray-500 font-sans leading-relaxed">Your Atta is packed in breathable bags and dispatched across Bangalore immediately.</p>
-                  </div>
+             </div>
+             <div className="flex gap-10 items-center">
+                <div className="w-20 h-20 rounded-full border-2 border-[#D4AF37] flex items-center justify-center font-bold text-[#D4AF37] text-2xl shrink-0 bg-white">04</div>
+                <div>
+                   <h4 className="text-2xl font-bold mb-2">PM: Delivery Run</h4>
+                   <p className="font-sans text-gray-500">Hand-packed and dispatched across Bangalore immediately.</p>
                 </div>
-                <div className="absolute left-5 md:left-1/2 w-12 h-12 bg-[#FFFDF5] border-2 border-[#D4AF37] rounded-full flex items-center justify-center font-bold text-[#D4AF37] -translate-x-1/2 z-20 shadow-sm">04</div>
-              </div>
-            </div>
+             </div>
           </div>
         </div>
       </section>
 
-      {/* 5. THE TRANSPARENCY GRID */}
-      <section className="py-24 bg-[#3E2723] text-white">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-16 italic text-[#D4AF37] font-serif">The Aarahi Purity Standard</h2>
-          <div className="grid md:grid-cols-3 gap-12">
-            <div className="p-10 border border-white/10 rounded-[2.5rem] bg-white/5">
-              <div className="text-[#D4AF37] text-3xl mb-4">✓</div>
-              <h4 className="font-bold text-xl mb-4 font-serif">Zero Preservatives</h4>
-              <p className="text-gray-400 text-sm font-sans leading-relaxed">No chemicals to artificially extend life. Our flour is alive, meant to be consumed fresh by your family.</p>
-            </div>
-            <div className="p-10 border border-white/10 rounded-[2.5rem] bg-white/5">
-              <div className="text-[#D4AF37] text-3xl mb-4">✓</div>
-              <h4 className="font-bold text-xl mb-4 font-serif">Non-GMO Grains</h4>
-              <p className="text-gray-400 text-sm font-sans leading-relaxed">We only source heirloom Sharbati seeds. No lab-modified wheat, ever. Pure as nature intended.</p>
-            </div>
-            <div className="p-10 border border-white/10 rounded-[2.5rem] bg-white/5">
-              <div className="text-[#D4AF37] text-3xl mb-4">✓</div>
-              <h4 className="font-bold text-xl mb-4 font-serif">Milled in Bangalore</h4>
-              <p className="text-gray-400 text-sm font-sans leading-relaxed">A clean, sanitized milling facility right in the city. We are your local partners in wellness.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. SUBSCRIPTION TIERS */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-20 text-[#3E2723] font-serif">Investment in Family Health</h2>
-          <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto text-left">
-            <div className="border-2 border-gray-100 p-10 rounded-[3rem] bg-white hover:shadow-xl transition-all">
-              <h3 className="text-2xl font-bold mb-2 font-serif">Standard (5KG)</h3>
-              <p className="font-sans text-gray-400 mb-8 text-sm italic">Ideal for smaller families</p>
-              <div className="text-5xl font-bold mb-10 text-[#3E2723]">₹390 <span className="text-lg font-normal text-gray-400">/ mo</span></div>
-              <button className="w-full py-5 rounded-2xl border-2 border-[#3E2723] font-bold uppercase tracking-widest text-xs font-sans">Buy Once</button>
-            </div>
-            <div className="border-4 border-[#D4AF37] p-10 rounded-[3rem] bg-[#FFFDF5] shadow-2xl relative scale-105 transition-transform">
-              <div className="absolute top-0 right-0 bg-[#D4AF37] text-white px-8 py-2 rounded-bl-3xl text-xs font-bold uppercase tracking-widest font-sans">Recommended</div>
-              <h3 className="text-2xl font-bold mb-2 font-serif">Wellness Plan (10KG)</h3>
-              <p className="font-sans text-gray-400 mb-8 text-sm italic">2 Deliveries x 5kg for maximum freshness</p>
-              <div className="text-5xl font-bold mb-10 text-[#3E2723]">₹720 <span className="text-lg font-normal text-gray-400">/ mo</span></div>
-              <button className="w-full py-5 rounded-2xl bg-[#3E2723] text-white font-bold uppercase tracking-widest text-xs font-sans">Subscribe & Save</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. FOOTER */}
-      <footer className="bg-[#3E2723] text-white py-20 px-6 text-center">
-        <div className="max-w-4xl mx-auto font-serif">
-          <h2 className="text-4xl font-bold mb-6 italic tracking-tight text-[#D4AF37]">Aarahi Foods</h2>
-          <p className="font-sans text-gray-400 mb-12 max-w-lg mx-auto leading-relaxed">Elevating the daily staple across Bangalore through professional management and cold-milled precision.</p>
-          <div className="pt-8 border-t border-white/10 text-[10px] text-gray-500 uppercase tracking-widest font-sans">
-            © 2026 Aarahi Foods • Traditionally Milled • Bangalore
-          </div>
+      {/* 5. FOOTER */}
+      <footer className="bg-[#1A1512] text-white py-24 px-6 text-center">
+        <h2 className="text-4xl font-bold mb-6 italic text-[#D4AF37]">Aarahi Foods.</h2>
+        <p className="text-gray-500 font-sans max-w-md mx-auto mb-12">The future of family wellness, delivered fresh across Bangalore.</p>
+        <div className="pt-8 border-t border-white/5 text-[10px] text-gray-600 uppercase tracking-widest font-sans">
+          © 2026 Aarahi Foods • MBA-Led Quality • Bangalore
         </div>
       </footer>
 
