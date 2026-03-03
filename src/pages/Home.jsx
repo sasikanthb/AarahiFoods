@@ -1,9 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-import attaBag from '../assets/images/Pic1.png'; 
-import scoopGift from '../assets/images/Pic3.png';
-
 const Home = () => {
   return (
     <div className="min-h-screen bg-[#FFFDF5] text-[#3E2723] font-serif">
@@ -35,7 +32,7 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* 2. THE 24-HOUR PROCESS SECTION */}
+      {/* 2. THE 24-HOUR PROCESS SECTION (01, 02, 03, 04) */}
       <section className="py-20 bg-white border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold mb-4 text-[#3E2723]">The 24-Hour Freshness Cycle</h2>
