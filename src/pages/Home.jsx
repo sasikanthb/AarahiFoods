@@ -69,14 +69,15 @@ const Home = () => {
                     className="z-10"
                 >
 
-                    <h1 className="text-5xl md:text-4xl font-display font-bold leading-tight mb-8">
-                        We bring purity back to everyday food →  <span className="text-primary">Freshly milled. Pure. Honest.</span>
-                    </h1>
-                    <div className='real-food-section mt-[21px] mb-[30px] font-ibm text-[18.5px] leading-[29.5px] font-medium'>
-                        <AnimatedHighlightText className="customizeparagraph animated-text-line">
-                            Freshly milled chakki atta made from carefully selected wheat - clean, honest, and full of nutrition.
-                        </AnimatedHighlightText>
-                    </div>
+                   <h1 className="text-5xl md:text-4xl font-display font-bold leading-tight mb-8">
+                    Pure Wheat. Freshly Milled. <span className="text-primary">Delivered to Your Door.</span>
+                   </h1>
+
+                   <div className="real-food-section mt-[21px] mb-[30px] font-ibm text-[18.5px] leading-[29.5px]">
+                    <AnimatedHighlightText className="customizeparagraph animated-text-line">
+                      Stone-free, slow-milled chakki atta made from carefully selected wheat — clean, nutritious, and made for your family's health.
+                    </AnimatedHighlightText>
+                   </div>
                     {/* <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                         <Link to="/shop" className="bg-secondary text-white px-10 py-5 rounded-full font-bold hover:bg-primary transition-colors duration-300 flex items-center justify-center">
                             Shop All <ArrowRight size={20} className="ml-2" />
