@@ -21,7 +21,7 @@ const Home = () => {
             transition={{ delay: 0.5 }}
             className="uppercase tracking-[0.3em] text-xs mb-6 block text-[#8B4513] font-sans font-bold"
           >
-            Milled in North Bangalore • Delivered in 24 Hours
+            Milled in Bangalore • Delivered in 24 Hours
           </motion.span>
           
           <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-[1.1]">
@@ -112,8 +112,8 @@ const Home = () => {
               </div>
             </div>
             <div className="md:w-2/5 flex justify-center">
-               <div className="w-72 h-72 rounded-full bg-white border-8 border-white shadow-2xl flex items-center justify-center italic text-gray-300 overflow-hidden">
-                 <span className="text-center p-8">[Aalekhya Reddy - Founder Photo]</span>
+               <div className="w-72 h-72 rounded-full bg-white border-8 border-white shadow-2xl flex items-center justify-center italic text-gray-300 overflow-hidden text-center p-8">
+                 [Founder Photo: Aalekhya Reddy]
                </div>
             </div>
           </div>
@@ -126,11 +126,9 @@ const Home = () => {
           <h2 className="text-4xl font-bold text-[#3E2723] mb-24 text-center italic font-serif tracking-tight">The 24-Hour Obsession</h2>
           
           <div className="relative">
-            {/* Central Vertical Line */}
             <div className="absolute left-5 md:left-1/2 h-full w-0.5 bg-[#D4AF37]/30 -translate-x-1/2"></div>
 
             <div className="space-y-24">
-              {/* Step 05 AM */}
               <div className="relative flex flex-col md:flex-row items-center">
                 <div className="flex w-full md:w-1/2 justify-start md:justify-end md:pr-16">
                   <div className="w-full md:w-80 p-8 bg-white rounded-3xl shadow-sm border border-gray-100 relative z-10 hover:shadow-md transition-shadow">
@@ -141,7 +139,6 @@ const Home = () => {
                 <div className="absolute left-5 md:left-1/2 w-12 h-12 bg-[#FFFDF5] border-2 border-[#D4AF37] rounded-full flex items-center justify-center font-bold text-[#D4AF37] -translate-x-1/2 z-20 shadow-sm">05</div>
               </div>
 
-              {/* Step 09 AM */}
               <div className="relative flex flex-col md:flex-row items-center">
                 <div className="absolute left-5 md:left-1/2 w-12 h-12 bg-[#FFFDF5] border-2 border-[#D4AF37] rounded-full flex items-center justify-center font-bold text-[#D4AF37] -translate-x-1/2 z-20 shadow-sm">09</div>
                 <div className="flex w-full md:w-1/2 md:ml-auto justify-start md:pl-16">
@@ -152,12 +149,11 @@ const Home = () => {
                 </div>
               </div>
 
-              {/* Step 04 PM */}
               <div className="relative flex flex-col md:flex-row items-center">
                 <div className="flex w-full md:w-1/2 justify-start md:justify-end md:pr-16">
                   <div className="w-full md:w-80 p-8 bg-white rounded-3xl shadow-sm border border-gray-100 relative z-10 hover:shadow-md transition-shadow">
                     <div className="font-bold text-[#3E2723] mb-2 font-serif text-xl">04 PM: Delivery Run</div>
-                    <p className="text-sm text-gray-500 font-sans leading-relaxed">Your Atta is packed in breathable bags and dispatched to North Bangalore neighborhoods immediately.</p>
+                    <p className="text-sm text-gray-500 font-sans leading-relaxed">Your Atta is packed in breathable bags and dispatched across Bangalore immediately.</p>
                   </div>
                 </div>
                 <div className="absolute left-5 md:left-1/2 w-12 h-12 bg-[#FFFDF5] border-2 border-[#D4AF37] rounded-full flex items-center justify-center font-bold text-[#D4AF37] -translate-x-1/2 z-20 shadow-sm">04</div>
@@ -185,7 +181,7 @@ const Home = () => {
             <div className="p-10 border border-white/10 rounded-[2.5rem] bg-white/5">
               <div className="text-[#D4AF37] text-3xl mb-4">✓</div>
               <h4 className="font-bold text-xl mb-4">Milled in Bangalore</h4>
-              <p className="text-gray-400 text-sm font-sans leading-relaxed">A clean, sanitized milling facility right in your neighborhood. We are your local partners in wellness.</p>
+              <p className="text-gray-400 text-sm font-sans leading-relaxed">A clean, sanitized milling facility right in the city. We are your local partners in wellness.</p>
             </div>
           </div>
         </div>
@@ -217,12 +213,7 @@ const Home = () => {
       <footer className="bg-[#3E2723] text-white py-20 px-6 text-center">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold mb-6 italic tracking-tight text-[#D4AF37]">Aarahi Foods</h2>
-          <p className="font-sans text-gray-400 mb-12 max-w-lg mx-auto">Elevating the daily staple through professional management and cold-milled precision.</p>
-          <div className="flex flex-wrap justify-center gap-10 text-xs uppercase tracking-[0.3em] text-[#D4AF37] font-bold mb-12">
-            <span>Yelahanka</span>
-            <span>Sahakara Nagar</span>
-            <span>Hebbal</span>
-          </div>
+          <p className="font-sans text-gray-400 mb-12 max-w-lg mx-auto">Elevating the daily staple across Bangalore through professional management and cold-milled precision.</p>
           <div className="pt-8 border-t border-white/10 text-[10px] text-gray-500 uppercase tracking-widest font-sans">
             © 2026 Aarahi Foods • Traditionally Milled • Modernly Delivered
           </div>
