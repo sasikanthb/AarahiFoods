@@ -104,6 +104,28 @@ const Home = () => {
           <span>WhatsApp: +91 xxxxxxxxxx</span>
         </div>
       </footer>
+      {/* --- NEW: THE 24-HOUR PROCESS SECTION --- */}
+      <section className="py-20 bg-white border-y border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <h2 className="text-4xl font-bold mb-4 text-[#3E2723]">The 24-Hour Freshness Cycle</h2>
+          <p className="font-sans text-gray-500 mb-16">How we ensure your Atta never sits on a shelf.</p>
+          
+          <div className="grid md:grid-cols-4 gap-8">
+            {[
+              { step: "01", title: "Sourcing", desc: "We select only premium MP Sharbati grains from trusted farmers." },
+              { step: "02", title: "Cold-Milling", desc: "Slow-stone grinding at strictly under 30°C to keep nutrients alive." },
+              { step: "03", title: "Sieving", desc: "Traditional mesh sieving for a rich, high-fiber texture." },
+              { step: "04", title: "Delivery", desc: "At your doorstep in North Bangalore within 24 hours of milling." }
+            ].map((item, index) => (
+              <div key={index} className="relative p-8 bg-[#FDFBF7] rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                <span className="text-5xl font-bold text-[#D4AF37]/10 absolute top-4 right-6">{item.step}</span>
+                <h4 className="text-xl font-bold mb-3 text-[#3E2723]">{item.title}</h4>
+                <p className="font-sans text-sm text-gray-600 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
     </div>
   );
