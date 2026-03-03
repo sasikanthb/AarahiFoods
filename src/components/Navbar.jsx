@@ -17,60 +17,62 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}>
+        <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-md py-4' : 'bg-transparent py-6'}`}>
             <div className="container mx-auto px-6 flex justify-between items-center">
-                <img
-                    src={logo}
-                    alt="Healthy Food"
-                    className="text-2xl font-display text-secondary tracking-tight"
-                    width={60}
-                    height={100}
-                />
-                {/* <Link to="/" className="text-2xl font-display text-secondary tracking-tight">
-                    Aarahi Foods
-                </Link> */}
+                
+                {/* LOGO & BRAND NAME */}
+                <Link to="/" className="flex items-center space-x-3">
+                    <img
+                        src={logo}
+                        alt="Aarahi Foods Logo"
+                        className="rounded-full shadow-sm"
+                        width={50}
+                        height={50}
+                    />
+                    <span className={`text-2xl font-bold tracking-tighter ${scrolled ? 'text-[#3E2723]' : 'text-[#3E2723]'}`}>
+                        Aarahi Foods
+                    </span>
+                </Link>
 
-                {/* Desktop Menu */}
-                {/* <div className="hidden md:flex items-center space-x-8">
-                    <Link to="/shop" className="text-secondary hover:text-primary transition-colors font-medium">Shop</Link>
-                    <Link to="/byob" className="text-secondary hover:text-primary transition-colors font-medium">B.Y.O.B.</Link>
-                    <Link to="/new-launches" className="text-secondary hover:text-primary transition-colors font-medium">New Launches</Link>
-                    <Link to="/story" className="text-secondary hover:text-primary transition-colors font-medium">Our Story</Link>
-                    <Link to="/learn" className="text-secondary hover:text-primary transition-colors font-medium">Learn</Link>
-                </div> */}
+                {/* DESKTOP MENU (UNCOMMENTED & UPDATED) */}
+                <div className="hidden md:flex items-center space-x-8">
+                    <Link to="/" className="text-[#3E2723] hover:text-[#D4AF37] transition-colors font-medium">Home</Link>
+                    <Link to="/about" className="text-[#3E2723] hover:text-[#D4AF37] transition-colors font-medium">Our Story</Link>
+                    <Link to="/shop" className="text-[#3E2723] hover:text-[#D4AF37] transition-colors font-medium">Shop Atta</Link>
+                </div>
 
-                {/* <div className="hidden md:flex items-center space-x-6">
-                    <button className="text-secondary hover:text-primary transition-colors">
-                        <User size={24} />
+                {/* ICONS */}
+                <div className="hidden md:flex items-center space-x-6">
+                    <button className="text-[#3E2723] hover:text-[#D4AF37] transition-colors">
+                        <User size={22} />
                     </button>
-                    <button className="text-secondary hover:text-primary transition-colors relative">
-                        <ShoppingBag size={24} />
-                        <span className="absolute -top-1 -right-1 bg-primary text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">0</span>
+                    <button className="text-[#3E2723] hover:text-[#D4AF37] transition-colors relative">
+                        <ShoppingBag size={22} />
+                        <span className="absolute -top-2 -right-2 bg-[#D4AF37] text-white text-[10px] rounded-full w-4 h-4 flex items-center justify-center font-bold">0</span>
                     </button>
-                </div> */}
+                </div>
 
-                {/* Mobile menu button */}
-                {/* <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-secondary">
-                    {isOpen ? <X size={24} /> : <Menu size={24} />}
-                </button> */}
+                {/* MOBILE MENU BUTTON */}
+                <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-[#3E2723]">
+                    {isOpen ? <X size={28} /> : <Menu size={28} />}
+                </button>
             </div>
 
-            {/* Mobile Menu */}
+            {/* MOBILE MENU */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-white border-t border-gray-100 overflow-hidden"
+                        className="md:hidden bg-white border-t border-gray-100 overflow-hidden shadow-xl"
                     >
-                        <div className="flex flex-col p-6 space-y-4">
-                            <Link to="/shop" className="text-lg font-medium text-secondary" onClick={() => setIsOpen(false)}>Shop</Link>
-                            <Link to="/byob" className="text-lg font-medium text-secondary" onClick={() => setIsOpen(false)}>B.Y.O.B.</Link>
-                            <Link to="/new-launches" className="text-lg font-medium text-secondary" onClick={() => setIsOpen(false)}>New Launches</Link>
-                            <Link to="/story" className="text-lg font-medium text-secondary" onClick={() => setIsOpen(false)}>Our Story</Link>
-                            <Link to="/learn" className="text-lg font-medium text-secondary" onClick={() => setIsOpen(false)}>Learn</Link>
-                            <Link to="/account" className="text-lg font-medium text-secondary" onClick={() => setIsOpen(false)}>Account</Link>
+                        <div className="flex flex-col p-6 space-y-5">
+                            <Link to="/" className="text-lg font-medium text-[#3E2723]" onClick={() => setIsOpen(false)}>Home</Link>
+                            <Link to="/about" className="text-lg font-medium text-[#3E2723]" onClick={() => setIsOpen(false)}>Our Story</Link>
+                            <Link to="/shop" className="text-lg font-medium text-[#3E2723]" onClick={() => setIsOpen(false)}>Shop Atta</Link>
+                            <hr />
+                            <Link to="/account" className="text-lg font-medium text-[#3E2723]" onClick={() => setIsOpen(false)}>My Account</Link>
                         </div>
                     </motion.div>
                 )}
