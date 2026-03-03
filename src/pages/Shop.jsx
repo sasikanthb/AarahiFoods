@@ -1,94 +1,86 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingBag } from 'lucide-react';
-
-const categories = [
-    "All", "Protein Bars", "Muesli", "Nut Butters", "Energy Bars", "Mini Protein Bars", "Dark Cocoa"
-];
-
-const products = [
-    { id: 1, name: "Double Cocoa Protein Bar", category: "Protein Bars", price: 600, color: "bg-[#4A3728]" },
-    { id: 2, name: "Peanut Butter Muesli", category: "Muesli", price: 450, color: "bg-[#D4A373]" },
-    { id: 3, name: "Dark Chocolate Peanut Butter", category: "Nut Butters", price: 550, color: "bg-[#2C1810]" },
-    { id: 4, name: "Cranberry Energy Bar", category: "Energy Bars", price: 400, color: "bg-[#9D0208]" },
-    { id: 5, name: "Coffee Cocoa Protein Bar", category: "Protein Bars", price: 600, color: "bg-[#3E2723]" },
-    { id: 6, name: "Almond Butter", category: "Nut Butters", price: 800, color: "bg-[#F5DEB3]" },
-    { id: 7, name: "Hazelnut Mini Bars", category: "Mini Protein Bars", price: 350, color: "bg-[#8D6E63]" },
-    { id: 8, name: "55% Dark Chocolate", category: "Dark Cocoa", price: 300, color: "bg-[#1A1A1A]" },
-];
+import React from 'react';
+import { motion } from 'framer-motion';
+import { FaWhatsapp, FaShippingFast, FaCheckCircle } from 'react-icons/fa';
+import attaBag from '../assets/images/Pic1.png';
 
 const Shop = () => {
-    const [activeCategory, setActiveCategory] = useState("All");
+  const whatsappNumber = "9741236515"; // REPLACE THIS WITH YOUR BUSINESS WHATSAPP
 
-    const filteredProducts = activeCategory === "All"
-        ? products
-        : products.filter(p => p.category === activeCategory);
+  const products = [
+    {
+      id: 1,
+      name: "Aarahi Starter Pack (5KG)",
+      price: "390",
+      description: "Milled-to-order Sharbati Atta. Best for trying the Aarahi difference.",
+      features: ["Milled at 30°C", "24h Delivery"]
+    },
+    {
+      id: 2,
+      name: "Family Subscription (10KG)",
+      price: "720",
+      oldPrice: "780",
+      description: "Our Best Seller. Includes 2 deliveries of 5KG to ensure peak freshness.",
+      features: ["Free Wooden Scoop", "Free Atta Cookies", "Priority Milling Slot"],
+      featured: true
+    }
+  ];
 
-    return (
-        <div className="pt-24 min-h-screen bg-background pb-20">
-            <div className="container mx-auto px-6">
-                <motion.h1
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="text-4xl md:text-6xl font-display font-bold mb-12 text-center"
-                >
-                    Shop All
-                </motion.h1>
+  const openWhatsApp = (pName) => {
+    const msg = `Hi Aarahi! I want to order the ${pName}. Please share payment details.`;
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+  };
 
-                {/* Categories */}
-                <div className="flex flex-wrap justify-center gap-3 mb-16">
-                    {categories.map((cat) => (
-                        <button
-                            key={cat}
-                            onClick={() => setActiveCategory(cat)}
-                            className={`px-6 py-3 rounded-full text-sm font-bold transition-all duration-300 border ${activeCategory === cat
-                                    ? 'bg-secondary text-white border-secondary shadow-lg'
-                                    : 'bg-white text-secondary border-gray-200 hover:border-secondary hover:shadow-md'
-                                }`}
-                        >
-                            {cat}
-                        </button>
-                    ))}
-                </div>
+  return (
+    <div className="min-h-screen bg-[#FFFDF5] pt-32 pb-20 px-6 font-serif">
+      <div className="max-w-6xl mx-auto text-center">
+        <h1 className="text-5xl font-bold text-[#3E2723] mb-4">The Freshness Store</h1>
+        <p className="text-gray-600 font-sans mb-12 italic text-lg">Direct from our Mill to your Kitchen in North Bangalore.</p>
 
-                {/* Product Grid */}
-                <motion.div
-                    layout
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
-                >
-                    <AnimatePresence>
-                        {filteredProducts.map((product) => (
-                            <motion.div
-                                layout
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0.9 }}
-                                transition={{ duration: 0.3 }}
-                                key={product.id}
-                                className="group cursor-pointer"
-                            >
-                                <div className={`h-80 ${product.color} rounded-[2rem] mb-6 relative overflow-hidden transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-xl`}>
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+        <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+          {products.map((p) => (
+            <motion.div 
+              key={p.id}
+              whileHover={{ y: -5 }}
+              className={`p-10 rounded-[40px] border-2 text-left relative ${p.featured ? 'border-[#D4AF37] bg-white shadow-2xl' : 'border-gray-100 bg-white/50'}`}
+            >
+              {p.featured && <div className="absolute -top-4 left-10 bg-[#D4AF37] text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Most Popular</div>}
+              
+              <img src={attaBag} alt="Aarahi Atta" className="w-40 mb-6 drop-shadow-2xl" />
+              <h3 className="text-2xl font-bold text-[#3E2723] mb-2">{p.name}</h3>
+              <p className="font-sans text-gray-500 mb-6 text-sm">{p.description}</p>
+              
+              <div className="flex items-baseline gap-2 mb-8">
+                <span className="text-4xl font-bold text-[#3E2723]">₹{p.price}</span>
+                {p.oldPrice && <span className="text-xl text-gray-400 line-through">₹{p.oldPrice}</span>}
+              </div>
 
-                                    {/* Hover Add to Cart */}
-                                    <div className="absolute bottom-0 inset-x-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                                        <button className="w-full bg-white text-secondary font-bold py-3 rounded-xl shadow-lg flex items-center justify-center space-x-2 hover:bg-secondary hover:text-white transition-colors">
-                                            <ShoppingBag size={18} />
-                                            <span>Add to Cart</span>
-                                        </button>
-                                    </div>
-                                </div>
+              <ul className="mb-10 space-y-3">
+                {p.features.map(f => (
+                  <li key={f} className="flex items-center gap-2 font-sans text-sm text-gray-700">
+                    <FaCheckCircle className="text-[#81C784]" /> {f}
+                  </li>
+                ))}
+              </ul>
 
-                                <h3 className="font-display font-bold text-xl mb-1">{product.name}</h3>
-                                <p className="text-gray-500 text-sm mb-2 font-medium uppercase tracking-wide">{product.category}</p>
-                                <p className="font-bold text-lg">₹{product.price}</p>
-                            </motion.div>
-                        ))}
-                    </AnimatePresence>
-                </motion.div>
-            </div>
+              <button 
+                onClick={() => openWhatsApp(p.name)}
+                className={`w-full py-5 rounded-2xl flex items-center justify-center gap-3 font-bold text-lg transition-all shadow-lg ${p.featured ? 'bg-[#3E2723] text-white hover:bg-[#25D366]' : 'bg-white border-2 border-[#3E2723] text-[#3E2723] hover:bg-gray-50'}`}
+              >
+                <FaWhatsapp size={24} />
+                Order on WhatsApp
+              </button>
+            </motion.div>
+          ))}
         </div>
-    );
+
+        {/* TRUST FOOTER */}
+        <div className="mt-16 flex flex-wrap justify-center gap-8 opacity-70">
+          <div className="flex items-center gap-2 font-sans text-sm"><FaShippingFast /> Free Delivery in Yelahanka</div>
+          <div className="flex items-center gap-2 font-sans text-sm"><FaCheckCircle /> FSSAI Certified</div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Shop;
