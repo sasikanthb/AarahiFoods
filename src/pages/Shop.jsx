@@ -19,7 +19,7 @@ const products = [
     name: "Experience Pack",
     size: "1 KG",
     price: "₹85",
-    img: "/pack-1kg.jpg", // Make sure this image exists in your public folder!
+    img: "/pack-1kg.jpg", 
     tag: "The Trial",
     desc: "Perfect for testing the 'Aarahi' taste. Enough for 15-20 fresh rotis."
   },
@@ -28,7 +28,7 @@ const products = [
     name: "Classic Sharbati",
     size: "5 KG",
     price: "₹390",
-    img: "/pack-5kg.jpg", // Make sure this image exists in your public folder!
+    img: "/pack-5kg.jpg", 
     tag: "Most Popular",
     desc: "Our signature grind. The gold standard for daily Bangalore kitchens.",
     recommended: true
@@ -122,7 +122,7 @@ const Shop = () => {
         ))}
       </div>
 
-      {/* APP-STYLE BOTTOM NAVIGATION BAR (CLEAN VERSION) */}
+      {/* APP-STYLE BOTTOM NAVIGATION BAR */}
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-8 py-4 z-[9999] flex justify-between items-center shadow-2xl md:hidden">
         <Link to="/" className="flex flex-col items-center text-gray-400 hover:text-[#3E2723] transition-transform active:scale-95">
           <HomeIcon size={22} strokeWidth={2.5} />
