@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Home as HomeIcon, Info, Search, RotateCcw, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-// --- ANIMATION VARIANTS (Original) ---
+// --- ANIMATION VARIANTS ---
 const floating = {
   animate: {
     y: [0, -15, 0],
@@ -56,7 +56,7 @@ const Home = () => {
           
           {/* LIVE STATUS BADGE */}
           <div className="flex justify-center mb-6">
-            <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-1.5 rounded-full border border-[#D4AF37]/20">
+            <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-1.5 rounded-full border border-[#D4AF37]/20 shadow-sm">
               <MapPin size={12} className="text-red-500" />
               <span className="uppercase tracking-[0.2em] text-[9px] text-[#3E2723] font-sans font-black">Bengaluru</span>
               <span className="flex h-2 w-2 relative">
@@ -122,7 +122,7 @@ const Home = () => {
             <div className="md:w-3/5 text-left">
               <span className="text-[#D4AF37] font-sans font-bold uppercase tracking-widest text-xs mb-4 block">Our Commitment</span>
               <h2 className="text-4xl font-bold text-[#3E2723] mb-6 leading-tight italic">
-                "I realized that the flour we were feeding our children had lost its soul. I started Aarahi to bring back the purity our families deserve."
+                "I realized that the flour we were feeding our children had lost its soul."
               </h2>
               <p className="text-gray-700 font-sans italic mb-8 text-lg leading-relaxed">
                 "Every bag we mill is treated with the same care as the food I put on my own dining table."
@@ -176,32 +176,44 @@ const Home = () => {
         </div>
       </footer>
 
-      {/* 6. APP-STYLE BOTTOM NAVIGATION */}
+      {/* 6. APP-STYLE BOTTOM NAVIGATION (Corrected with Red Dot) */}
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-6 py-3 z-[9999] flex justify-between items-center shadow-[0_-10px_40px_rgba(0,0,0,0.05)] md:hidden">
+        
         <Link to="/" className="flex flex-col items-center text-[#3E2723] active:scale-95 transition-all">
           <HomeIcon size={22} strokeWidth={2.5} />
           <span className="text-[9px] font-bold mt-1 uppercase tracking-tighter">Home</span>
         </Link>
+        
         <Link to="/about" className="flex flex-col items-center text-gray-400 hover:text-[#3E2723] active:scale-95 transition-all">
           <Info size={22} />
           <span className="text-[9px] font-bold mt-1 uppercase tracking-tighter">Story</span>
         </Link>
+        
         <button className="flex flex-col items-center text-gray-400 hover:text-[#3E2723] active:scale-95 transition-all">
           <Search size={22} />
           <span className="text-[9px] font-bold mt-1 uppercase tracking-tighter">Search</span>
         </button>
+        
         <button className="flex flex-col items-center text-gray-400 hover:text-[#3E2723] active:scale-95 transition-all">
           <RotateCcw size={22} />
           <span className="text-[9px] font-bold mt-1 uppercase tracking-tighter">Reorder</span>
         </button>
+        
+        {/* THE SHOP BUTTON WITH BRAND NAME & RED NOTIFICATION DOT */}
         <Link to="/shop" className="relative bg-[#3E2723] text-[#D4AF37] px-4 py-2 rounded-xl flex flex-col items-center shadow-lg active:scale-95 transition-transform">
-          <span className="text-[8px] font-black italic font-serif leading-none">Aarahi</span>
+          {/* THE RED DOT */}
+          <span className="absolute -top-1 -right-1 flex h-3 w-3">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500 border-2 border-white"></span>
+          </span>
+          <span className="text-[8px] font-black italic font-serif leading-none uppercase">Aarahi</span>
           <span className="text-[10px] font-black uppercase tracking-tighter">Shop</span>
         </Link>
+        
       </div>
 
     </div>
   );
 };
 
-export default Home
+export default Home;
