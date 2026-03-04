@@ -30,7 +30,7 @@ const Home = () => {
 
   if (loading) {
     return (
-      <div className="h-screen w-full bg-[#FFFDF5] flex items-center justify-center">
+      <div className="h-screen w-full bg-[#FFFDF5] flex items-center justify-center text-center px-10">
         <motion.div 
           animate={{ opacity: [0.3, 1, 0.3] }} 
           transition={{ repeat: Infinity, duration: 1.5 }}
@@ -69,7 +69,7 @@ const Home = () => {
             </div>
           </div>
 
-          <h1 className="text-6xl md:text-9xl font-bold mb-8 leading-tight tracking-tighter uppercase">
+          <h1 className="text-6xl md:text-9xl font-bold mb-8 leading-tight tracking-tighter uppercase text-[#3E2723]">
             Stop Eating <br /><span className="italic text-[#D4AF37] font-light normal-case">"Dead"</span> Flour.
           </h1>
           <p className="text-xl md:text-2xl mb-12 font-sans text-gray-600 max-w-2xl mx-auto leading-relaxed">
@@ -91,7 +91,7 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* 2. THE SCIENCE (THE "AUTHORITY" SECTION) */}
+      {/* 2. THE SCIENCE SECTION */}
       <section className="py-32 bg-[#FCF9F2]">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-24 items-center">
           <div className="space-y-12 text-left">
@@ -108,8 +108,8 @@ const Home = () => {
             </div>
           </div>
           <motion.div variants={floating} animate="animate" className="flex justify-center">
-            <div className="relative p-8 bg-white rounded-[5rem] shadow-2xl border-[15px] border-white group">
-              <img src="/Aarahi Image 2.jpg" alt="Aarahi Bag" className="w-full max-w-md rounded-[3rem]" />
+            <div className="relative p-8 bg-white rounded-[5rem] shadow-2xl border-[15px] border-white">
+              <img src="/Aarahi Image 2.jpg" alt="Aarahi Bag" className="w-full max-w-sm rounded-[3rem]" />
               <div className="absolute -bottom-8 -right-8 bg-[#D4AF37] text-[#3E2723] p-10 rounded-full font-black text-2xl italic shadow-2xl">
                 100%<br/><span className="text-xs uppercase tracking-widest not-italic">Pure</span>
               </div>
@@ -118,7 +118,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 3. FOUNDER MANIFESTO (THE "TRUST" SECTION) */}
+      {/* 3. FOUNDER MANIFESTO */}
       <section className="py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div 
@@ -141,16 +141,16 @@ const Home = () => {
                 <div className="text-[11px] uppercase tracking-[0.5em] text-[#D4AF37] font-sans font-bold mt-2">Founder, Aarahi Foods</div>
               </div>
             </div>
-            <div className="md:w-2/5 flex justify-center relative">
+            <div className="md:w-2/5 flex justify-center">
                <div className="w-80 h-80 rounded-full bg-white border-[16px] border-white shadow-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
-                 <div className="bg-gray-100 h-full w-full flex items-center justify-center text-gray-300 italic text-sm tracking-widest uppercase">Founder Photo</div>
+                 <div className="bg-gray-100 h-full w-full flex items-center justify-center text-gray-300 italic text-sm tracking-widest uppercase font-sans font-black">Founder Photo</div>
                </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* 4. THE 24-HOUR OBSESSION (THE "SCALE" SECTION) */}
+      {/* 4. THE 24-HOUR OBSESSION TIMELINE */}
       <section className="py-40 bg-[#FCF9F2]">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <h2 className="text-5xl md:text-8xl font-black mb-32 italic font-serif tracking-tighter uppercase leading-none text-[#3E2723]">24-Hour Obsession.</h2>
@@ -176,38 +176,36 @@ const Home = () => {
       <footer className="bg-[#3E2723] text-white py-32 text-center px-6">
         <h2 className="text-6xl md:text-[10rem] font-black italic text-[#D4AF37] mb-12 uppercase tracking-tighter leading-none">Aarahi</h2>
         <div className="pt-16 border-t border-white/5 text-[10px] text-white/10 uppercase tracking-[0.8em] font-sans">
-          © 2026 Aarahi Foods • Traditional Freshness • Bangalore
+          © 2026 Aarahi Foods • Bangalore
         </div>
       </footer>
 
-      {/* 6. REFINED MOBILE NAVIGATION (THE "APP" SECTION) */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-3xl border-t border-gray-100 px-10 py-6 z-[9999] flex justify-between items-center shadow-[0_-25px_60px_rgba(0,0,0,0.1)] md:hidden">
+      {/* 6. NORMAL UNIFORM MOBILE NAVIGATION */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-3xl border-t border-gray-100 px-10 py-6 z-[9999] flex justify-between items-center shadow-[0_-15px_50px_rgba(0,0,0,0.1)] md:hidden">
         
         <Link to="/" className="flex flex-col items-center text-[#3E2723] active:scale-90 transition-all">
-          <HomeIcon size={26} strokeWidth={2.5} />
-          <span className="text-[10px] font-black mt-1.5 uppercase tracking-tighter">Home</span>
+          <HomeIcon size={24} strokeWidth={2.5} />
+          <span className="text-[9px] font-black mt-1.5 uppercase tracking-tighter">Home</span>
         </Link>
         
         <Link to="/about" className="flex flex-col items-center text-gray-400 active:scale-90 transition-all">
-          <HelpCircle size={26} strokeWidth={2.5} />
-          <span className="text-[10px] font-black mt-1.5 uppercase tracking-tighter">Why Me</span>
+          <HelpCircle size={24} strokeWidth={2.5} />
+          <span className="text-[9px] font-black mt-1.5 uppercase tracking-tighter text-nowrap">Why Me</span>
         </Link>
         
-        {/* SHOP ICON (REFINED & ELEGANT) */}
-        <Link to="/shop" className="relative flex flex-col items-center group active:scale-95 transition-transform">
-          <div className="bg-[#3E2723] p-4 rounded-2xl shadow-2xl border border-[#D4AF37]/20 relative">
-            <ShoppingBag size={28} className="text-[#D4AF37]" strokeWidth={2.5} />
-            {/* SUBTLE RED NOTIFICATION DOT */}
-            <span className="absolute top-2.5 right-2.5 flex h-3 w-3">
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500 border-2 border-white shadow-sm"></span>
-            </span>
-          </div>
-          <span className="text-[10px] font-black mt-2 text-[#3E2723] uppercase tracking-tighter">Shop</span>
+        {/* SHOP ICON (UNIFORM STYLE) */}
+        <Link to="/shop" className="relative flex flex-col items-center text-[#3E2723] active:scale-90 transition-all">
+          <ShoppingBag size={24} strokeWidth={2.5} />
+          {/* SUBTLE RED DOT */}
+          <span className="absolute top-0 right-1 flex h-2.5 w-2.5">
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500 border-2 border-white"></span>
+          </span>
+          <span className="text-[9px] font-black mt-1.5 uppercase tracking-tighter text-nowrap">Aarahi Shop</span>
         </Link>
 
         <Link to="/shop" className="flex flex-col items-center text-gray-400 active:scale-90 transition-all">
-          <Search size={26} strokeWidth={2.5} />
-          <span className="text-[10px] font-black mt-1.5 uppercase tracking-tighter">Search</span>
+          <Search size={24} strokeWidth={2.5} />
+          <span className="text-[9px] font-black mt-1.5 uppercase tracking-tighter">Search</span>
         </Link>
         
       </div>
