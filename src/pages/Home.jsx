@@ -31,18 +31,44 @@ const Home = () => {
 
   if (loading) {
     return (
-      <div className="h-screen w-full bg-[#FFFDF5] flex items-center justify-center">
+      <div className="h-screen w-full bg-[#3E2723] flex flex-col items-center justify-center overflow-hidden">
+        {/* THE BRAND PULSE */}
         <motion.div 
-          animate={{ scale: [1, 1.1, 1], opacity: [0.5, 1, 0.5] }} 
-          transition={{ repeat: Infinity, duration: 1.5 }}
-          className="text-[#D4AF37] font-serif italic text-2xl"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="text-center"
         >
-          Milling Freshness for Bangalore...
+          <motion.h2 
+            animate={{ opacity: [0.5, 1, 0.5] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+            className="text-[#D4AF37] font-serif italic text-4xl md:text-6xl mb-4 tracking-tighter"
+          >
+            Aarahi
+          </motion.h2>
+          
+          <div className="flex items-center gap-3 justify-center">
+            <span className="h-[1px] w-8 bg-[#D4AF37]/30"></span>
+            <motion.p 
+              animate={{ letterSpacing: ["0.2em", "0.5em", "0.2em"] }}
+              transition={{ repeat: Infinity, duration: 3 }}
+              className="text-[#D4AF37]/80 font-sans text-[10px] uppercase tracking-[0.5em] font-black"
+            >
+              Milling Fresh for Bengaluru
+            </motion.p>
+            <span className="h-[1px] w-8 bg-[#D4AF37]/30"></span>
+          </div>
         </motion.div>
+
+        {/* SUBTLE PROGRESS BAR */}
+        <motion.div 
+          initial={{ width: 0 }}
+          animate={{ width: "120px" }}
+          transition={{ duration: 0.8 }}
+          className="mt-12 h-[2px] bg-[#D4AF37] shadow-[0_0_15px_#D4AF37]"
+        />
       </div>
     );
   }
-
   return (
     <div className="min-h-screen bg-[#FFFDF5] text-[#3E2723] font-serif overflow-x-hidden pb-24">
       
