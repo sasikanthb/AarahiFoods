@@ -1,12 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Home as HomeIcon, HelpCircle, Search, MapPin, ShoppingBag, ShieldCheck, ArrowDown } from 'lucide-react';
+import { Home as HomeIcon, HelpCircle, Search, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 // --- ANIMATION VARIANTS ---
-const navItemVariant = {
-  initial: { y: 0 },
-  tap: { scale: 0.85, transition: { type: "spring", stiffness: 400, damping: 10 } }
+const floating = {
+  animate: {
+    y: [0, -15, 0],
+    transition: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+  }
+};
+
+const cardHover = {
+  initial: { scale: 1, boxShadow: "0px 0px 0px rgba(0,0,0,0)", borderColor: "rgba(212, 175, 55, 0.1)" },
+  hover: { 
+    scale: 1.03, 
+    borderColor: "#D4AF37",
+    boxShadow: "0px 20px 40px rgba(212, 175, 55, 0.2)",
+    transition: { duration: 0.3 }
+  }
 };
 
 const Home = () => {
@@ -19,209 +31,184 @@ const Home = () => {
 
   if (loading) {
     return (
-      <div className="h-screen w-full bg-[#3E2723] flex flex-col items-center justify-center">
+      <div className="h-screen w-full bg-[#FFFDF5] flex items-center justify-center">
         <motion.div 
-          animate={{ opacity: [0.4, 1, 0.4], scale: [0.98, 1, 0.98] }} 
-          transition={{ repeat: Infinity, duration: 2 }}
-          className="text-[#D4AF37] font-serif italic text-3xl tracking-widest uppercase font-black"
+          animate={{ scale: [1, 1.1, 1], opacity: [0.5, 1, 0.5] }} 
+          transition={{ repeat: Infinity, duration: 1.5 }}
+          className="text-[#D4AF37] font-serif italic text-2xl"
         >
-          Aarahi
+          Milling Freshness for Bangalore...
         </motion.div>
-        <div className="mt-4 h-[1px] w-12 bg-[#D4AF37]/30 animate-pulse"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#FFFDF5] text-[#3E2723] font-serif overflow-x-hidden pb-32">
+    <div className="min-h-screen bg-[#FFFDF5] text-[#3E2723] font-serif overflow-x-hidden pb-24">
       
-      {/* 1. HERO SECTION (THE "WOW" ENTRY) */}
-      <section className="relative h-[95vh] flex items-center justify-center text-center px-6 bg-[#F5F5DC] overflow-hidden">
-        <motion.div 
-          initial={{ scale: 1.2, opacity: 0 }} 
-          animate={{ scale: 1, opacity: 0.15 }} 
-          transition={{ duration: 3 }} 
-          className="absolute inset-0 z-0"
-        >
-          <img src="/Aarahi Image 3.jpg" alt="Fresh Flour" className="w-full h-full object-cover" />
+      {/* 1. HERO SECTION */}
+      <section className="relative h-[90vh] flex items-center justify-center text-center px-6 bg-[#F5F5DC] overflow-hidden">
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.15 }} className="absolute inset-0 z-0">
+          <img src="/Aarahi Image 3.jpg" alt="Fresh Flour Dusting" className="w-full h-full object-cover" />
         </motion.div>
 
-        <div className="max-w-5xl relative z-10">
-          <motion.div 
-            initial={{ opacity: 0, y: 10 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            className="flex justify-center mb-10"
-          >
-            <div className="bg-white/80 backdrop-blur-xl px-6 py-2.5 rounded-full border border-[#D4AF37]/20 shadow-xl flex items-center gap-3">
-              <span className="flex h-2.5 w-2.5 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
-              </span>
-              <span className="uppercase tracking-[0.4em] text-[10px] font-sans font-black text-[#3E2723]">Milling Live in Bengaluru</span>
-            </div>
-          </motion.div>
-
-          <h1 className="text-7xl md:text-[11rem] font-bold mb-10 leading-[0.8] tracking-tighter uppercase">
-            Stop Eating <br /><span className="italic text-[#D4AF37] font-light normal-case">"Dead"</span> Flour.
-          </h1>
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl relative z-10">
           
-          <p className="text-xl md:text-3xl mb-16 font-sans text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
-            Stone-milled at 28°C to keep the nutrients alive. <br />
-            Delivered from our stones to your home in 24 hours.
-          </p>
+          {/* EYE CATCHY: BENGALURU LIVE PULSE */}
+          <div className="flex justify-center mb-6">
+            <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-1.5 rounded-full border border-[#D4AF37]/20 shadow-sm">
+              <MapPin size={12} className="text-red-500" />
+              <span className="uppercase tracking-[0.2em] text-[9px] text-[#3E2723] font-sans font-black">Bengaluru</span>
+              <span className="flex h-2 w-2 relative">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+              </span>
+              <span className="text-[9px] font-sans font-bold text-green-700">LIVE MILLING</span>
+            </div>
+          </div>
 
-          <Link to="/shop">
-            <motion.button 
-              whileHover={{ scale: 1.05, boxShadow: "0px 30px 60px rgba(62,39,35,0.3)" }} 
-              whileTap={{ scale: 0.95 }} 
-              className="bg-[#3E2723] text-white px-20 py-7 rounded-full text-xl font-black shadow-2xl uppercase tracking-[0.2em] font-sans"
-            >
-              Order Fresh
-            </motion.button>
-          </Link>
-        </div>
-        
-        <motion.div 
-          animate={{ y: [0, 15, 0] }} 
-          transition={{ repeat: Infinity, duration: 2 }} 
-          className="absolute bottom-10 opacity-20"
-        >
-          <ArrowDown size={30} />
+          <span className="uppercase tracking-[0.3em] text-[10px] md:text-xs mb-6 block text-[#8B4513] font-sans font-bold">
+            A Bangalore Food Startup • Delivered in 24 Hours
+          </span>
+          <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
+            Stop Eating <br /><span className="italic text-[#D4AF37] font-light">"Dead"</span> Flour.
+          </h1>
+          <p className="text-xl md:text-2xl mb-12 font-sans text-gray-700 max-w-2xl mx-auto leading-relaxed">
+            Slow-milled Sharbati Wheat. Ground at 30°C to preserve life. <br />
+            MBA-led precision meets traditional stone-milling.
+          </p>
+          <div className="flex flex-col md:flex-row gap-6 justify-center">
+            <Link to="/shop">
+              <motion.button 
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-[#3E2723] text-white px-12 py-5 rounded-full text-lg font-bold border-2 border-[#3E2723] transition-all shadow-xl font-sans"
+              >
+                Claim Founder's Kit
+              </motion.button>
+            </Link>
+          </div>
         </motion.div>
       </section>
 
-      {/* 2. THE SCIENCE (AUTHORITY) */}
-      <section className="py-40 bg-[#FCF9F2]">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-32 items-center">
-          <div className="space-y-16 text-left">
-            <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none uppercase">The Science <br/>of Living.</h2>
-            <div className="space-y-12">
-              <div className="border-l-4 border-red-100 pl-10 py-2">
-                <p className="text-[11px] font-black uppercase text-red-300 tracking-[0.5em] mb-4">Industrial Roller</p>
-                <p className="text-3xl text-gray-400 italic font-light leading-snug">90°C heat kills the nutrients. You're eating empty starch.</p>
+      {/* 2. THE SCIENCE */}
+      <section className="py-24 bg-[#FCF9F2]">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-16 items-center text-left">
+            <div className="space-y-10">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#3E2723] mb-6 font-serif">The Science of Freshness</h2>
+              <div className="space-y-8 font-sans">
+                <motion.div variants={cardHover} initial="initial" whileHover="hover" className="border-l-4 border-red-200 pl-8 p-6 rounded-r-2xl transition-all cursor-default">
+                  <h4 className="text-red-800 font-bold uppercase text-[10px] tracking-[0.2em] mb-2">Industrial Flour</h4>
+                  <p className="text-gray-500 text-sm italic">"Dead Calories" — High-speed rollers at 90°C destroy nutrients.</p>
+                </motion.div>
+                <motion.div variants={cardHover} initial="initial" whileHover="hover" className="border-l-4 border-[#D4AF37] pl-8 bg-white py-8 rounded-r-[2rem] shadow-xl border border-transparent cursor-default">
+                  <h4 className="text-[#D4AF37] font-bold uppercase text-[10px] tracking-[0.2em] mb-2">Aarahi Fresh</h4>
+                  <p className="text-[#3E2723] font-bold">"Living Nutrition" — Cold-milled at 28°C. Delivered in 24 hours across Bangalore.</p>
+                </motion.div>
               </div>
-              <motion.div 
-                whileHover={{ x: 15 }} 
-                className="border-l-8 border-[#D4AF37] pl-10 py-10 bg-white rounded-r-[4rem] shadow-[0_40px_80px_rgba(0,0,0,0.05)]"
-              >
-                <p className="text-[11px] font-black uppercase text-[#D4AF37] tracking-[0.5em] mb-4">Aarahi Cold-Mill</p>
-                <p className="text-4xl font-black leading-tight text-[#3E2723]">Stone Ground at 28°C. <br/>Vitality preserved.</p>
-              </motion.div>
             </div>
-          </div>
-          <div className="flex justify-center group relative">
-             <div className="absolute inset-0 bg-[#D4AF37]/5 rounded-full blur-[100px] scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
-             <img src="/Aarahi Image 2.jpg" alt="Aarahi Bag" className="relative w-full max-w-md rounded-[5rem] shadow-[0_50px_100px_rgba(0,0,0,0.12)] border-[20px] border-white group-hover:rotate-2 transition-transform duration-700" />
+            <motion.div variants={floating} animate="animate" className="flex justify-center">
+              <div className="relative p-4 bg-white rounded-[3rem] shadow-2xl rotate-2 max-w-sm border border-[#F3E5AB]">
+                <img src="/Aarahi Image 2.jpg" alt="Aarahi Atta Bag" className="w-full rounded-[2.5rem]" />
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* 3. FOUNDER MANIFESTO (TRUST) */}
-      <section className="py-40 bg-white">
+      {/* 3. FOUNDER MANIFESTO */}
+      <section className="py-24 bg-white border-y border-gray-50 text-left">
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }} 
-            whileInView={{ opacity: 1, y: 0 }} 
-            viewport={{ once: true }}
-            className="bg-[#F5F5DC] rounded-[5rem] p-16 md:p-32 flex flex-col md:flex-row items-center gap-24 shadow-inner border border-[#D4AF37]/10"
-          >
-            <div className="md:w-3/5 text-left">
-              <div className="flex items-center gap-4 mb-12">
-                <ShieldCheck size={30} className="text-[#D4AF37]" />
-                <span className="text-[#D4AF37] font-sans font-bold uppercase tracking-[0.6em] text-[12px]">The Mother's Promise</span>
-              </div>
-              <h2 className="text-5xl md:text-[5.5rem] font-bold text-[#3E2723] mb-12 leading-[1] italic tracking-tighter">
-                "I started Aarahi to bring back the purity our families deserve."
+          <motion.div whileHover={{ scale: 1.01 }} className="bg-[#F5F5DC] rounded-[3rem] p-12 md:p-20 relative flex flex-col md:flex-row items-center gap-12 border border-[#D4AF37]/20 shadow-sm transition-all">
+            <div className="md:w-3/5">
+              <span className="text-[#D4AF37] font-sans font-bold uppercase tracking-widest text-xs mb-4 block">Founder's Note</span>
+              <h2 className="text-4xl font-bold text-[#3E2723] mb-6 leading-tight italic">
+                "I couldn't find flour I trusted for my family's health. As an MBA, I decided to fix the supply chain myself."
               </h2>
-              <p className="text-3xl text-gray-700 font-sans italic mb-12 leading-relaxed font-light">"Every bag we mill is treated with the same care as the food I put on my own dining table."</p>
-              <div className="text-[#3E2723] font-black text-4xl uppercase tracking-tighter">Aalekhya Reddy</div>
-              <div className="text-[12px] uppercase tracking-[0.6em] text-[#D4AF37] font-sans font-bold mt-2">Founder, Aarahi Foods</div>
+              <p className="text-gray-700 font-sans italic mb-8 text-lg leading-relaxed">
+                "We aren't a factory; we are a dedicated kitchen for Bangalore families. Every bag is milled with maternal care and professional precision."
+              </p>
+              <div>
+                <div className="text-[#3E2723] font-bold text-2xl">Aalekhya Reddy</div>
+                <div className="text-xs uppercase tracking-widest text-[#D4AF37] font-sans font-bold mt-1">Founder, Aarahi Foods (MBA)</div>
+              </div>
             </div>
             <div className="md:w-2/5 flex justify-center">
-               <div className="w-96 h-96 rounded-full bg-white border-[20px] border-white shadow-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000">
-                 <div className="bg-gray-100 h-full w-full flex items-center justify-center text-gray-400 font-black uppercase text-xs tracking-widest">Portrait</div>
-               </div>
+               <motion.div whileHover={{ rotate: 5, scale: 1.05 }} className="w-72 h-72 rounded-full bg-white border-8 border-white shadow-2xl flex items-center justify-center overflow-hidden cursor-pointer">
+                 <span className="text-gray-300 italic font-sans text-sm">Founder Photo</span>
+               </motion.div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* 4. THE 24-HOUR TIMELINE (SCALE) */}
-      <section className="py-40 bg-[#FCF9F2]">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-7xl md:text-[10rem] font-black mb-40 italic font-serif tracking-tighter uppercase leading-none text-center">24-Hour Timeline.</h2>
-          <div className="space-y-56">
-            {[
-              { time: "05", title: "THE SELECTION", desc: "Inspecting premium MP Sharbati for moisture and soul." },
-              { time: "09", title: "STONE MILLING", desc: "Stone chakki starts. We monitor temperature every 15 minutes." },
-              { time: "04", title: "DELIVERY", desc: "Delivered across Bangalore while the nutrients are active." }
-            ].map((step, index) => (
-              <motion.div 
-                key={index} 
-                initial={{ opacity: 0, x: -50 }} 
-                whileInView={{ opacity: 1, x: 0 }} 
-                viewport={{ once: true }}
-                className="flex flex-col md:flex-row items-center gap-24 group"
-              >
-                <div className="text-[18rem] font-black text-[#D4AF37]/10 italic leading-none group-hover:text-[#D4AF37]/25 transition-all duration-700 select-none">{step.time}</div>
-                <div className="relative">
-                  <h4 className="font-sans font-black text-xs tracking-[0.6em] text-[#D4AF37] mb-6 uppercase">{step.title}</h4>
-                  <p className="text-5xl md:text-6xl font-bold tracking-tight leading-tight">{step.desc}</p>
+      {/* 4. THE 24-HOUR OBSESSION TIMELINE */}
+      <section className="py-24 bg-[#FCF9F2]">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-4xl font-bold text-[#3E2723] mb-20 italic font-serif">The 24-Hour Obsession</h2>
+          <div className="relative text-left">
+            <div className="absolute left-5 md:left-1/2 h-full w-0.5 bg-[#D4AF37]/30 -translate-x-1/2"></div>
+            <div className="space-y-24">
+              {[
+                { time: "05", title: "The Selection", desc: "Inspecting premium MP Sharbati for moisture and purity. Only the best grains are approved." },
+                { time: "09", title: "Cold-Milling", desc: "Stone chakki starts. We monitor temperature every 15 mins to ensure it never crosses 30°C." },
+                { time: "04", title: "Delivery Run", desc: "Packed in breathable bags and dispatched across Bangalore immediately. Freshness delivered." }
+              ].map((step, index) => (
+                <div key={index} className={`relative flex flex-col md:flex-row items-center ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
+                  <div className={`flex w-full md:w-1/2 justify-start ${index % 2 === 0 ? 'md:justify-end md:pr-16' : 'md:justify-start md:pl-16'}`}>
+                    <motion.div variants={cardHover} initial="initial" whileHover="hover" className="w-full md:w-80 p-8 bg-white rounded-3xl shadow-sm border border-gray-100 z-10 cursor-pointer">
+                      <div className="font-bold text-[#3E2723] mb-2 font-serif text-xl">{step.time} AM: {step.title}</div>
+                      <p className="text-sm text-gray-500 font-sans leading-relaxed">{step.desc}</p>
+                    </motion.div>
+                  </div>
+                  <div className="absolute left-5 md:left-1/2 w-12 h-12 bg-[#FFFDF5] border-2 border-[#D4AF37] rounded-full flex items-center justify-center font-bold text-[#D4AF37] -translate-x-1/2 z-20 shadow-sm">{step.time}</div>
                 </div>
-              </motion.div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* 5. FOOTER */}
-      <footer className="bg-[#3E2723] text-white py-48 text-center px-6">
-        <motion.h2 whileHover={{ scale: 1.02 }} className="text-8xl md:text-[18rem] font-black italic text-[#D4AF37] mb-12 uppercase tracking-tighter leading-none">Aarahi</motion.h2>
-        <p className="text-sm uppercase tracking-[1em] opacity-30 font-sans mb-20">Milled Fresh in Bengaluru</p>
-        <div className="pt-20 border-t border-white/5 text-[11px] text-white/10 uppercase tracking-[0.8em] font-sans">© 2026 Aarahi Foods Private Limited</div>
+      <footer className="bg-[#3E2723] text-white py-20 px-6 text-center">
+        <h2 className="text-4xl font-bold mb-4 italic text-[#D4AF37]">Aarahi Foods</h2>
+        <p className="font-sans text-gray-400 mb-8 max-w-lg mx-auto">Precision milling. Bangalore freshness.</p>
+        <div className="pt-8 border-t border-white/10 text-[10px] text-gray-500 uppercase tracking-widest font-sans">
+          © 2026 Aarahi Foods • MBA-Led Quality • Bangalore
+        </div>
       </footer>
 
-      {/* 6. THE "STUNNING" MOBILE NAVIGATION (GLASS-FLOAT) */}
-      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 w-[92%] z-[9999] md:hidden">
-        <div className="bg-white/80 backdrop-blur-3xl border border-white/50 rounded-[3rem] px-10 py-6 flex justify-between items-center shadow-[0_30px_100px_rgba(0,0,0,0.15)]">
+      {/* 6. APP-STYLE BOTTOM NAVIGATION BAR */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-6 py-3 z-[9999] flex justify-between items-center shadow-[0_-10px_40px_rgba(0,0,0,0.05)] md:hidden">
+        
+        <Link to="/" className="flex flex-col items-center text-[#3E2723] transition-transform active:scale-95">
+          <HomeIcon size={22} strokeWidth={2.5} />
+          <span className="text-[9px] font-bold mt-1 uppercase tracking-tighter">Home</span>
+        </Link>
+        
+        <Link to="/about" className="flex flex-col items-center text-gray-400 hover:text-[#3E2723] transition-all active:scale-95">
+          <HelpCircle size={22} />
+          <span className="text-[9px] font-bold mt-1 uppercase tracking-tighter">Why Me</span>
+        </Link>
+        
+        <Link to="/shop" className="relative bg-[#3E2723] text-[#D4AF37] px-4 py-2 rounded-xl flex flex-col items-center shadow-lg active:scale-95 transition-transform">
           
-          <Link to="/">
-            <motion.div variants={navItemVariant} whileTap="tap" className="flex flex-col items-center text-[#3E2723]">
-              <HomeIcon size={26} strokeWidth={2.5} />
-              <span className="text-[10px] font-black mt-2 uppercase tracking-tighter">Home</span>
-            </motion.div>
-          </Link>
-          
-          <Link to="/about">
-            <motion.div variants={navItemVariant} whileTap="tap" className="flex flex-col items-center text-gray-400">
-              <HelpCircle size={26} strokeWidth={2.5} />
-              <span className="text-[10px] font-black mt-2 uppercase tracking-tighter text-nowrap">Why Me</span>
-            </motion.div>
-          </Link>
-          
-          <Link to="/shop">
-            <motion.div variants={navItemVariant} whileTap="tap" className="relative flex flex-col items-center group">
-              {/* SUBTLE EYE-CATCHY AURA */}
-              <div className="absolute -inset-6 bg-[#D4AF37]/15 rounded-full blur-2xl transition-all duration-700"></div>
-              
-              <div className="relative text-[#3E2723]">
-                <ShoppingBag size={28} strokeWidth={2.5} />
-                <span className="absolute top-0 -right-1 flex h-2.5 w-2.5">
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500 border-2 border-white shadow-sm"></span>
-                </span>
-              </div>
-              <span className="text-[10px] font-black mt-2 uppercase tracking-tighter text-nowrap">Aarahi Shop</span>
-            </motion.div>
-          </Link>
+          {/* THE BLINKING RED NOTIFICATION DOT */}
+          <span className="absolute -top-1.5 -right-1.5 flex h-3.5 w-3.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-red-500 border-2 border-white"></span>
+          </span>
 
-          <Link to="/shop">
-            <motion.div variants={navItemVariant} whileTap="tap" className="flex flex-col items-center text-gray-400">
-              <Search size={26} strokeWidth={2.5} />
-              <span className="text-[10px] font-black mt-2 uppercase tracking-tighter">Search</span>
-            </motion.div>
-          </Link>
-          
-        </div>
+          <span className="text-[8px] font-black italic font-serif leading-none">Aarahi</span>
+          <span className="text-[10px] font-black uppercase tracking-tighter">Shop</span>
+        </Link>
+
+        <button className="flex flex-col items-center text-gray-400 hover:text-[#3E2723] transition-all active:scale-95">
+          <Search size={22} />
+          <span className="text-[9px] font-bold mt-1 uppercase tracking-tighter">Search</span>
+        </button>
+        
       </div>
 
     </div>
