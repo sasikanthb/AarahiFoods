@@ -52,9 +52,18 @@ const Home = () => {
           <img src="/Aarahi Image 3.jpg" alt="Fresh Flour Dusting" className="w-full h-full object-cover" />
         </motion.div>
 
+        {/* EYE-CATCHY: SUBTLE FLOATING GRAIN ELEMENT */}
+        <motion.div 
+          animate={{ rotate: 360 }} 
+          transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+          className="absolute top-20 right-10 opacity-5 hidden md:block"
+        >
+          <div className="w-64 h-64 border-2 border-[#D4AF37] rounded-full border-dashed" />
+        </motion.div>
+
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl relative z-10">
           
-          {/* EYE CATCHY: BENGALURU LIVE PULSE */}
+          {/* BENGALURU LIVE PULSE */}
           <div className="flex justify-center mb-6">
             <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-1.5 rounded-full border border-[#D4AF37]/20 shadow-sm">
               <MapPin size={12} className="text-red-500" />
@@ -75,7 +84,7 @@ const Home = () => {
           </h1>
           <p className="text-xl md:text-2xl mb-12 font-sans text-gray-700 max-w-2xl mx-auto leading-relaxed">
             Slow-milled Sharbati Wheat. Ground at 30°C to preserve life. <br />
-            MBA-led precision meets traditional stone-milling.
+            Maternal care meets traditional stone-milling.
           </p>
           <div className="flex flex-col md:flex-row gap-6 justify-center">
             <Link to="/shop">
@@ -124,14 +133,14 @@ const Home = () => {
             <div className="md:w-3/5">
               <span className="text-[#D4AF37] font-sans font-bold uppercase tracking-widest text-xs mb-4 block">Founder's Note</span>
               <h2 className="text-4xl font-bold text-[#3E2723] mb-6 leading-tight italic">
-                "I couldn't find flour I trusted for my family's health. As an MBA, I decided to fix the supply chain myself."
+                "I couldn't find flour I trusted for my family's health. I decided to bring back the purity our kitchens once had."
               </h2>
               <p className="text-gray-700 font-sans italic mb-8 text-lg leading-relaxed">
-                "We aren't a factory; we are a dedicated kitchen for Bangalore families. Every bag is milled with maternal care and professional precision."
+                "We aren't a factory; we are a dedicated kitchen for Bangalore families. Every bag is milled with maternal care and uncompromising honesty."
               </p>
               <div>
                 <div className="text-[#3E2723] font-bold text-2xl">Aalekhya Reddy</div>
-                <div className="text-xs uppercase tracking-widest text-[#D4AF37] font-sans font-bold mt-1">Founder, Aarahi Foods (MBA)</div>
+                <div className="text-xs uppercase tracking-widest text-[#D4AF37] font-sans font-bold mt-1">Founder, Aarahi Foods</div>
               </div>
             </div>
             <div className="md:w-2/5 flex justify-center">
@@ -173,9 +182,9 @@ const Home = () => {
       {/* 5. FOOTER */}
       <footer className="bg-[#3E2723] text-white py-20 px-6 text-center">
         <h2 className="text-4xl font-bold mb-4 italic text-[#D4AF37]">Aarahi Foods</h2>
-        <p className="font-sans text-gray-400 mb-8 max-w-lg mx-auto">Precision milling. Bangalore freshness.</p>
+        <p className="font-sans text-gray-400 mb-8 max-w-lg mx-auto">Traditional milling. Bangalore freshness.</p>
         <div className="pt-8 border-t border-white/10 text-[10px] text-gray-500 uppercase tracking-widest font-sans">
-          © 2026 Aarahi Foods • MBA-Led Quality • Bangalore
+          © 2026 Aarahi Foods • Traditional Quality • Bangalore
         </div>
       </footer>
 
@@ -189,18 +198,17 @@ const Home = () => {
         
         <Link to="/about" className="flex flex-col items-center text-gray-400 hover:text-[#3E2723] transition-all active:scale-95">
           <HelpCircle size={22} />
-          <span className="text-[9px] font-bold mt-1 uppercase tracking-tighter">Why Me</span>
+          <span className="text-[9px] font-bold mt-1 uppercase tracking-tighter text-nowrap">Why Me</span>
         </Link>
         
         <Link to="/shop" className="relative bg-[#3E2723] text-[#D4AF37] px-4 py-2 rounded-xl flex flex-col items-center shadow-lg active:scale-95 transition-transform">
           
-          {/* THE BLINKING RED NOTIFICATION DOT */}
           <span className="absolute -top-1.5 -right-1.5 flex h-3.5 w-3.5">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-red-500 border-2 border-white"></span>
           </span>
 
-          <span className="text-[8px] font-black italic font-serif leading-none">Aarahi</span>
+          <span className="text-[8px] font-black italic font-serif leading-none uppercase">Aarahi</span>
           <span className="text-[10px] font-black uppercase tracking-tighter">Shop</span>
         </Link>
 
