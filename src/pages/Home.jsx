@@ -1,22 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Home as HomeIcon, HelpCircle, Search, RotateCcw, MapPin, ShoppingBag } from 'lucide-react';
+import { Home as HomeIcon, HelpCircle, Search, MapPin, ShoppingBag } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 // --- ANIMATION VARIANTS ---
-const floating = {
+const textSettle = {
+  initial: { y: 20, opacity: 0, filter: "blur(5px)" },
+  animate: { 
+    y: 0, 
+    opacity: 1, 
+    filter: "blur(0px)",
+    transition: { duration: 1.2, ease: "easeOut" } 
+  }
+};
+
+const pulseAction = {
   animate: {
-    y: [0, -15, 0],
-    transition: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+    scale: [1, 1.05, 1],
+    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" }
   }
 };
 
 const cardHover = {
-  initial: { scale: 1, boxShadow: "0px 0px 0px rgba(0,0,0,0)", borderColor: "rgba(212, 175, 55, 0.1)" },
+  initial: { scale: 1, boxShadow: "0px 0px 0px rgba(0,0,0,0)" },
   hover: { 
     scale: 1.03, 
-    borderColor: "#D4AF37",
-    boxShadow: "0px 20px 40px rgba(212, 175, 55, 0.2)",
+    boxShadow: "0px 20px 40px rgba(212, 175, 55, 0.15)",
     transition: { duration: 0.3 }
   }
 };
@@ -48,17 +57,22 @@ const Home = () => {
       
       {/* 1. HERO SECTION */}
       <section className="relative h-[90vh] flex items-center justify-center text-center px-6 bg-[#F5F5DC] overflow-hidden">
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.15 }} className="absolute inset-0 z-0">
+        <motion.div 
+          initial={{ scale: 1.1 }} 
+          animate={{ scale: 1 }} 
+          transition={{ duration: 3 }}
+          className="absolute inset-0 z-0 opacity-15"
+        >
           <img src="/Aarahi Image 3.jpg" alt="Fresh Flour" className="w-full h-full object-cover" />
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl relative z-10">
+        <motion.div variants={textSettle} initial="initial" animate="animate" className="max-w-4xl relative z-10">
           
           {/* LIVE STATUS BADGE */}
           <div className="flex justify-center mb-6">
-            <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-1.5 rounded-full border border-[#D4AF37]/20 shadow-sm">
+            <div className="flex items-center gap-2 bg-white/90 backdrop-blur-md px-5 py-2 rounded-full border border-[#D4AF37]/20 shadow-xl">
               <MapPin size={12} className="text-red-500" />
-              <span className="uppercase tracking-[0.2em] text-[9px] text-[#3E2723] font-sans font-black">Bengaluru</span>
+              <span className="uppercase tracking-[0.2em] text-[10px] text-[#3E2723] font-sans font-black">Bengaluru</span>
               <span className="flex h-2 w-2 relative">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
@@ -67,7 +81,7 @@ const Home = () => {
             </div>
           </div>
 
-          <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight tracking-tighter uppercase">
+          <h1 className="text-6xl md:text-9xl font-bold mb-8 leading-tight tracking-tighter uppercase">
             Stop Eating <br /><span className="italic text-[#D4AF37] font-light normal-case">"Dead"</span> Flour.
           </h1>
           <p className="text-xl md:text-2xl mb-12 font-sans text-gray-700 max-w-2xl mx-auto leading-relaxed">
@@ -78,7 +92,7 @@ const Home = () => {
             <motion.button 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-[#3E2723] text-white px-12 py-5 rounded-full text-lg font-bold border-2 border-[#3E2723] shadow-xl font-sans uppercase tracking-widest"
+              className="bg-[#3E2723] text-white px-14 py-6 rounded-full text-lg font-bold border-2 border-[#3E2723] shadow-2xl font-sans uppercase tracking-widest"
             >
               Claim Founder's Kit
             </motion.button>
@@ -91,21 +105,21 @@ const Home = () => {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="space-y-10 text-left">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#3E2723] mb-6 font-serif tracking-tight">The Science of Freshness</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-[#3E2723] mb-6 font-serif tracking-tight leading-none">The Science <br/>of Freshness.</h2>
               <div className="space-y-8 font-sans">
-                <motion.div variants={cardHover} initial="initial" whileHover="hover" className="border-l-4 border-red-200 pl-8 p-6 rounded-r-2xl bg-white/30 cursor-default">
-                  <h4 className="text-red-800 font-bold uppercase text-[10px] tracking-[0.2em] mb-2">Industrial Flour</h4>
+                <motion.div variants={cardHover} initial="initial" whileHover="hover" className="border-l-4 border-red-200 pl-8 p-6 bg-white/30 rounded-r-2xl transition-all cursor-default">
+                  <h4 className="text-red-800 font-bold uppercase text-[10px] tracking-[0.3em] mb-2">Industrial Flour</h4>
                   <p className="text-gray-500 text-sm italic">"Dead Calories" — High-speed rollers at 90°C destroy nutrients.</p>
                 </motion.div>
-                <motion.div variants={cardHover} initial="initial" whileHover="hover" className="border-l-4 border-[#D4AF37] pl-8 bg-white py-8 rounded-r-[2rem] shadow-xl border border-transparent cursor-default">
-                  <h4 className="text-[#D4AF37] font-bold uppercase text-[10px] tracking-[0.2em] mb-2">Aarahi Fresh</h4>
-                  <p className="text-[#3E2723] font-bold">"Living Nutrition" — Cold-milled at 28°C. Delivered in 24 hours across Bangalore.</p>
+                <motion.div variants={cardHover} initial="initial" whileHover="hover" className="border-l-8 border-[#D4AF37] pl-8 bg-white py-10 rounded-r-[3rem] shadow-2xl transition-all cursor-default">
+                  <h4 className="text-[#D4AF37] font-bold uppercase text-[10px] tracking-[0.3em] mb-2 font-black">Aarahi Fresh</h4>
+                  <p className="text-[#3E2723] font-bold text-xl">"Living Nutrition" — Cold-milled at 28°C. Delivered in 24 hours.</p>
                 </motion.div>
               </div>
             </div>
-            <motion.div variants={floating} animate="animate" className="flex justify-center">
-              <div className="relative p-4 bg-white rounded-[3rem] shadow-2xl rotate-2 max-w-sm border border-[#F3E5AB]">
-                <img src="/Aarahi Image 2.jpg" alt="Aarahi Atta Bag" className="w-full rounded-[2.5rem]" />
+            <motion.div animate={{ rotate: [0, 2, 0] }} transition={{ repeat: Infinity, duration: 5 }} className="flex justify-center">
+              <div className="relative p-6 bg-white rounded-[4rem] shadow-2xl max-w-sm border-8 border-white">
+                <img src="/Aarahi Image 2.jpg" alt="Aarahi Atta Bag" className="w-full rounded-[3rem]" />
               </div>
             </motion.div>
           </div>
@@ -115,103 +129,71 @@ const Home = () => {
       {/* 3. FOUNDER MANIFESTO */}
       <section className="py-24 bg-white border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div 
-            whileHover={{ scale: 1.01 }}
-            className="bg-[#F5F5DC] rounded-[3rem] p-12 md:p-20 relative flex flex-col md:flex-row items-center gap-12 border border-[#D4AF37]/20 shadow-sm"
-          >
+          <div className="bg-[#F5F5DC] rounded-[4rem] p-12 md:p-24 relative flex flex-col md:flex-row items-center gap-16 shadow-sm border border-[#D4AF37]/10">
             <div className="md:w-3/5 text-left">
-              <span className="text-[#D4AF37] font-sans font-bold uppercase tracking-widest text-xs mb-4 block">Our Commitment</span>
-              <h2 className="text-4xl font-bold text-[#3E2723] mb-6 leading-tight italic">
+              <h2 className="text-4xl md:text-6xl font-bold text-[#3E2723] mb-10 leading-tight italic tracking-tighter">
                 "I realized that the flour we were feeding our children had lost its soul."
               </h2>
-              <p className="text-gray-700 font-sans italic mb-8 text-lg leading-relaxed">
+              <p className="text-gray-700 font-sans italic mb-12 text-xl leading-relaxed">
                 "Every bag we mill is treated with the same care as the food I put on my own dining table."
               </p>
-              <div>
-                <div className="text-[#3E2723] font-bold text-2xl">Aalekhya Reddy</div>
-                <div className="text-[10px] uppercase tracking-widest text-[#D4AF37] font-sans font-bold mt-1">Founder, Aarahi Foods</div>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-[2px] bg-[#D4AF37]"></div>
+                <div>
+                  <div className="text-[#3E2723] font-black text-2xl uppercase tracking-tighter">Aalekhya Reddy</div>
+                  <div className="text-[10px] uppercase tracking-widest text-[#D4AF37] font-sans font-bold">Founder, Aarahi Foods</div>
+                </div>
               </div>
             </div>
             <div className="md:w-2/5 flex justify-center">
-               <div className="w-64 h-64 rounded-full bg-white border-8 border-white shadow-2xl flex items-center justify-center overflow-hidden grayscale">
-                 <span className="text-gray-300 italic font-sans text-sm">Founder Photo</span>
+               <div className="w-80 h-80 rounded-full bg-white border-[12px] border-white shadow-2xl overflow-hidden grayscale">
+                 <div className="bg-gray-100 h-full w-full flex items-center justify-center text-gray-300 italic">Portrait</div>
                </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 4. THE 24-HOUR OBSESSION TIMELINE */}
-      <section className="py-24 bg-[#FCF9F2]">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold text-[#3E2723] mb-20 italic font-serif">The 24-Hour Obsession</h2>
-          <div className="relative text-left">
-            <div className="absolute left-5 md:left-1/2 h-full w-0.5 bg-[#D4AF37]/30 -translate-x-1/2"></div>
-            <div className="space-y-24">
-              {[
-                { time: "05", title: "The Selection", desc: "Inspecting premium MP Sharbati for moisture and purity." },
-                { time: "09", title: "Cold-Milling", desc: "Stone chakki starts. We monitor temperature to ensure it stays below 30°C." },
-                { time: "04", title: "Delivery Run", desc: "Packed in breathable bags and dispatched across Bangalore immediately." }
-              ].map((step, index) => (
-                <div key={index} className={`relative flex flex-col md:flex-row items-center ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
-                  <div className={`flex w-full md:w-1/2 justify-start ${index % 2 === 0 ? 'md:justify-end md:pr-16' : 'md:justify-start md:pl-16'}`}>
-                    <motion.div variants={cardHover} initial="initial" whileHover="hover" className="w-full md:w-80 p-8 bg-white rounded-3xl shadow-sm border border-gray-100 z-10 cursor-pointer">
-                      <div className="font-bold text-[#3E2723] mb-2 font-serif text-xl">{step.time} AM: {step.title}</div>
-                      <p className="text-sm text-gray-500 font-sans leading-relaxed">{step.desc}</p>
-                    </motion.div>
-                  </div>
-                  <div className="absolute left-5 md:left-1/2 w-12 h-12 bg-[#FFFDF5] border-2 border-[#D4AF37] rounded-full flex items-center justify-center font-bold text-[#D4AF37] -translate-x-1/2 z-20 shadow-sm">{step.time}</div>
-                </div>
-              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* 5. FOOTER */}
-      <footer className="bg-[#3E2723] text-white py-20 px-6 text-center">
-        <h2 className="text-4xl font-bold mb-4 italic text-[#D4AF37]">Aarahi Foods</h2>
-        <div className="pt-8 border-t border-white/10 text-[10px] text-gray-500 uppercase tracking-widest font-sans">
+      {/* 4. FOOTER */}
+      <footer className="bg-[#3E2723] text-white py-32 px-6 text-center">
+        <h2 className="text-6xl md:text-9xl font-black italic text-[#D4AF37] tracking-tighter uppercase mb-4">Aarahi</h2>
+        <div className="pt-12 border-t border-white/5 text-[10px] text-white/30 uppercase tracking-[0.5em] font-sans">
           © 2026 Aarahi Foods • Bangalore
         </div>
       </footer>
 
-      {/* 6. MOBILE NAVIGATION BAR (RE-DESIGNED) */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-6 py-4 z-[9999] flex justify-between items-center shadow-[0_-10px_40px_rgba(0,0,0,0.08)] md:hidden">
+      {/* 5. APP-STYLE BOTTOM NAVIGATION (CLEAN & EYE-CATCHY) */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-xl border-t border-gray-100 px-8 py-5 z-[9999] flex justify-between items-center shadow-[0_-20px_50px_rgba(0,0,0,0.1)] md:hidden">
         
         {/* HOME */}
         <Link to="/" className="flex flex-col items-center text-[#3E2723] active:scale-90 transition-all">
           <HomeIcon size={24} strokeWidth={2.5} />
-          <span className="text-[9px] font-black mt-1 uppercase tracking-tighter">Home</span>
+          <span className="text-[10px] font-black mt-1 uppercase tracking-tighter">Home</span>
         </Link>
         
-        {/* WHY ME (Our Story) */}
+        {/* WHY ME */}
         <Link to="/about" className="flex flex-col items-center text-gray-400 active:scale-90 transition-all">
-          <HelpCircle size={24} />
-          <span className="text-[9px] font-black mt-1 uppercase tracking-tighter text-nowrap">Why Me</span>
+          <HelpCircle size={24} strokeWidth={2.5} />
+          <span className="text-[10px] font-black mt-1 uppercase tracking-tighter">Why Me</span>
         </Link>
         
-        {/* AARAHI SHOP (Middle Primary Action) */}
-        <Link to="/shop" className="relative bg-[#3E2723] text-[#D4AF37] px-5 py-3 rounded-2xl flex flex-col items-center shadow-xl -mt-8 active:scale-95 transition-transform border-4 border-white">
-          {/* THE RED NOTIFICATION DOT */}
-          <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-red-500 border-2 border-white"></span>
-          </span>
-          <span className="text-[10px] font-black uppercase tracking-tighter text-nowrap">Aarahi Shop</span>
-        </Link>
+        {/* AARAHI SHOP (BREATHING MIDDLE BUTTON) */}
+        <motion.div variants={pulseAction} animate="animate">
+          <Link to="/shop" className="relative bg-[#3E2723] text-[#D4AF37] px-6 py-4 rounded-3xl flex flex-col items-center shadow-2xl -mt-12 active:scale-95 transition-transform border-4 border-white">
+            <span className="absolute -top-1 -right-1 flex h-4 w-4">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-4 w-4 bg-red-500 border-2 border-white"></span>
+            </span>
+            <span className="text-[11px] font-black uppercase tracking-tighter">Aarahi Shop</span>
+            <span className="text-[7px] font-black italic opacity-60">Milling Live</span>
+          </Link>
+        </motion.div>
 
         {/* SEARCH */}
         <Link to="/shop" className="flex flex-col items-center text-gray-400 active:scale-90 transition-all">
-          <Search size={24} />
-          <span className="text-[9px] font-black mt-1 uppercase tracking-tighter">Search</span>
+          <Search size={24} strokeWidth={2.5} />
+          <span className="text-[10px] font-black mt-1 uppercase tracking-tighter">Search</span>
         </Link>
-        
-        {/* REORDER */}
-        <button className="flex flex-col items-center text-gray-400 active:scale-90 transition-all">
-          <RotateCcw size={24} />
-          <span className="text-[9px] font-black mt-1 uppercase tracking-tighter">Reorder</span>
-        </button>
         
       </div>
 
