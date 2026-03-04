@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Home as HomeIcon, Info, Search, RotateCcw, MapPin } from 'lucide-react';
+import { Home as HomeIcon, HelpCircle, Search, RotateCcw, MapPin, ShoppingBag } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 // --- ANIMATION VARIANTS ---
@@ -67,8 +67,8 @@ const Home = () => {
             </div>
           </div>
 
-          <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight tracking-tighter">
-            Stop Eating <br /><span className="italic text-[#D4AF37] font-light">"Dead"</span> Flour.
+          <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight tracking-tighter uppercase">
+            Stop Eating <br /><span className="italic text-[#D4AF37] font-light normal-case">"Dead"</span> Flour.
           </h1>
           <p className="text-xl md:text-2xl mb-12 font-sans text-gray-700 max-w-2xl mx-auto leading-relaxed">
             Slow-milled Sharbati Wheat. Ground at 30°C to preserve life. <br />
@@ -176,39 +176,42 @@ const Home = () => {
         </div>
       </footer>
 
-      {/* 6. APP-STYLE BOTTOM NAVIGATION (Corrected with Red Dot) */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-6 py-3 z-[9999] flex justify-between items-center shadow-[0_-10px_40px_rgba(0,0,0,0.05)] md:hidden">
+      {/* 6. MOBILE NAVIGATION BAR (RE-DESIGNED) */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-6 py-4 z-[9999] flex justify-between items-center shadow-[0_-10px_40px_rgba(0,0,0,0.08)] md:hidden">
         
-        <Link to="/" className="flex flex-col items-center text-[#3E2723] active:scale-95 transition-all">
-          <HomeIcon size={22} strokeWidth={2.5} />
-          <span className="text-[9px] font-bold mt-1 uppercase tracking-tighter">Home</span>
+        {/* HOME */}
+        <Link to="/" className="flex flex-col items-center text-[#3E2723] active:scale-90 transition-all">
+          <HomeIcon size={24} strokeWidth={2.5} />
+          <span className="text-[9px] font-black mt-1 uppercase tracking-tighter">Home</span>
         </Link>
         
-        <Link to="/about" className="flex flex-col items-center text-gray-400 hover:text-[#3E2723] active:scale-95 transition-all">
-          <Info size={22} />
-          <span className="text-[9px] font-bold mt-1 uppercase tracking-tighter">Story</span>
+        {/* WHY ME (Our Story) */}
+        <Link to="/about" className="flex flex-col items-center text-gray-400 active:scale-90 transition-all">
+          <HelpCircle size={24} />
+          <span className="text-[9px] font-black mt-1 uppercase tracking-tighter text-nowrap">Why Me</span>
         </Link>
         
-        <button className="flex flex-col items-center text-gray-400 hover:text-[#3E2723] active:scale-95 transition-all">
-          <Search size={22} />
-          <span className="text-[9px] font-bold mt-1 uppercase tracking-tighter">Search</span>
-        </button>
-        
-        <button className="flex flex-col items-center text-gray-400 hover:text-[#3E2723] active:scale-95 transition-all">
-          <RotateCcw size={22} />
-          <span className="text-[9px] font-bold mt-1 uppercase tracking-tighter">Reorder</span>
-        </button>
-        
-        {/* THE SHOP BUTTON WITH BRAND NAME & RED NOTIFICATION DOT */}
-        <Link to="/shop" className="relative bg-[#3E2723] text-[#D4AF37] px-4 py-2 rounded-xl flex flex-col items-center shadow-lg active:scale-95 transition-transform">
-          {/* THE RED DOT */}
-          <span className="absolute -top-1 -right-1 flex h-3 w-3">
+        {/* AARAHI SHOP (Middle Primary Action) */}
+        <Link to="/shop" className="relative bg-[#3E2723] text-[#D4AF37] px-5 py-3 rounded-2xl flex flex-col items-center shadow-xl -mt-8 active:scale-95 transition-transform border-4 border-white">
+          {/* THE RED NOTIFICATION DOT */}
+          <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500 border-2 border-white"></span>
+            <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-red-500 border-2 border-white"></span>
           </span>
-          <span className="text-[8px] font-black italic font-serif leading-none uppercase">Aarahi</span>
-          <span className="text-[10px] font-black uppercase tracking-tighter">Shop</span>
+          <span className="text-[10px] font-black uppercase tracking-tighter text-nowrap">Aarahi Shop</span>
         </Link>
+
+        {/* SEARCH */}
+        <Link to="/shop" className="flex flex-col items-center text-gray-400 active:scale-90 transition-all">
+          <Search size={24} />
+          <span className="text-[9px] font-black mt-1 uppercase tracking-tighter">Search</span>
+        </Link>
+        
+        {/* REORDER */}
+        <button className="flex flex-col items-center text-gray-400 active:scale-90 transition-all">
+          <RotateCcw size={24} />
+          <span className="text-[9px] font-black mt-1 uppercase tracking-tighter">Reorder</span>
+        </button>
         
       </div>
 
