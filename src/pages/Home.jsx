@@ -197,24 +197,22 @@ const Home = () => {
         
         <Link to="/about" className="flex flex-col items-center text-gray-400 hover:text-[#3E2723] transition-all active:scale-95">
           <HelpCircle size={22} />
-          <span className="text-[9px] font-bold mt-1 uppercase tracking-tighter text-nowrap">Why Aarahi</span>
+          <span className="text-[9px] font-bold mt-1 uppercase tracking-tighter text-nowrap">Why Me</span>
         </Link>
         
-        <Link to="/shop" className="relative bg-[#3E2723] text-[#D4AF37] px-4 py-2 rounded-xl flex flex-col items-center shadow-lg active:scale-95 transition-transform">
-          
-          <span className="absolute -top-1.5 -right-1.5 flex h-3.5 w-3.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-red-500 border-2 border-white"></span>
-          </span>
-
-          <span className="text-[8px] font-black italic font-serif leading-none uppercase">Aarahi</span>
-          <span className="text-[10px] font-black uppercase tracking-tighter">Shop</span>
-        </Link>
-
         <button className="flex flex-col items-center text-gray-400 hover:text-[#3E2723] transition-all active:scale-95">
           <Search size={22} />
           <span className="text-[9px] font-bold mt-1 uppercase tracking-tighter">Search</span>
         </button>
+
+        <Link to="/shop" className="relative bg-[#3E2723] text-[#D4AF37] px-4 py-2 rounded-xl flex flex-col items-center shadow-lg active:scale-95 transition-transform">
+          <span className="absolute -top-1.5 -right-1.5 flex h-3.5 w-3.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-red-500 border-2 border-white"></span>
+          </span>
+          <span className="text-[8px] font-black italic font-serif leading-none uppercase">Aarahi</span>
+          <span className="text-[10px] font-black uppercase tracking-tighter">Shop</span>
+        </Link>
         
       </div>
 
