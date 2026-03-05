@@ -93,7 +93,7 @@ const Home = () => {
           <div className="flex justify-center mb-6">
             <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-1.5 rounded-full border border-[#D4AF37]/20 shadow-sm">
               <MapPin size={12} className="text-red-500" />
-              <span className="uppercase tracking-[0.2em] text-[9px] text-[#3E2723] font-sans font-black">Bengaluru</span>
+              <span className="uppercase tracking-[0.2em] text-[9px] text-[#3E2723] font-sans font-black">Freshly Milled in Bengaluru Delivered Within 24 Hours</span>
               <span className="flex h-2 w-2 relative">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
@@ -103,14 +103,13 @@ const Home = () => {
           </div>
 
           <span className="uppercase tracking-[0.3em] text-[10px] md:text-xs mb-6 block text-[#8B4513] font-sans font-bold">
-            A Bangalore Food Startup • Delivered in 24 Hours
+            Freshly Milled in Bengaluru Delivered Within 24 Hours
           </span>
           <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
             Stop Eating <br /><span className="italic text-[#D4AF37] font-light">"Dead"</span> Flour.
           </h1>
           <p className="text-xl md:text-2xl mb-12 font-sans text-gray-700 max-w-2xl mx-auto leading-relaxed">
-            Slow-milled Sharbati Wheat. Ground at 30°C to preserve life. <br />
-            Maternal care meets traditional stone-milling.
+            Slow-milled Sharbati Wheat. Ground at 30°C to protect natural nutrition.
           </p>
           <div className="flex flex-col md:flex-row gap-6 justify-center">
             <Link to="/shop">
@@ -135,11 +134,11 @@ const Home = () => {
               <div className="space-y-8 font-sans">
                 <motion.div variants={cardHover} initial="initial" whileHover="hover" className="border-l-4 border-red-200 pl-8 p-6 rounded-r-2xl transition-all cursor-default">
                   <h4 className="text-red-800 font-bold uppercase text-[10px] tracking-[0.2em] mb-2">Industrial Flour</h4>
-                  <p className="text-gray-500 text-sm italic">"Dead Calories" — High-speed rollers at 90°C destroy nutrients.</p>
+                  <p className="text-gray-500 text-sm italic">Packaged atta is produced using high-speed roller mills that generate heat at 90°C, destroying nutrients.</p>
                 </motion.div>
                 <motion.div variants={cardHover} initial="initial" whileHover="hover" className="border-l-4 border-[#D4AF37] pl-8 bg-white py-8 rounded-r-[2rem] shadow-xl border border-transparent cursor-default">
                   <h4 className="text-[#D4AF37] font-bold uppercase text-[10px] tracking-[0.2em] mb-2">Aarahi Fresh</h4>
-                  <p className="text-[#3E2723] font-bold">"Living Nutrition" — Cold-milled at 28°C. Delivered in 24 hours across Bangalore.</p>
+                  <p className="text-[#3E2723] font-bold">Living Nutrition - Stone-milled in small batches at low temperatures to preserve fibre, nutrients, and natural oils.</p>
                 </motion.div>
               </div>
             </div>
@@ -159,10 +158,10 @@ const Home = () => {
             <div className="md:w-3/5">
               <span className="text-[#D4AF37] font-sans font-bold uppercase tracking-widest text-xs mb-4 block">Founder's Note</span>
               <h2 className="text-4xl font-bold text-[#3E2723] mb-6 leading-tight italic">
-                "I couldn't find flour I trusted for my family's health. I decided to bring back the purity our kitchens once had."
+                "I couldn't find flour I trusted for my family's health. I decided to start milling it myself."
               </h2>
               <p className="text-gray-700 font-sans italic mb-8 text-lg leading-relaxed">
-                "We aren't a factory; we are a dedicated kitchen for Bangalore families. Every bag is milled with maternal care and uncompromising honesty."
+                "Aarahi Foods began with a simple belief that families deserve fresh, honest food. Every bag is milled with maternal care and uncompromising honesty."
               </p>
               <div>
                 <div className="text-[#3E2723] font-bold text-2xl">Aalekhya Reddy</div>
@@ -181,14 +180,14 @@ const Home = () => {
       {/* 4. THE 24-HOUR OBSESSION TIMELINE */}
       <section className="py-24 bg-[#FCF9F2]">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold text-[#3E2723] mb-20 italic font-serif">The 24-Hour Obsession</h2>
+          <h2 className="text-4xl font-bold text-[#3E2723] mb-20 italic font-serif">From Wheat to Your Kitchen in 24 Hours</h2>
           <div className="relative text-left">
             <div className="absolute left-5 md:left-1/2 h-full w-0.5 bg-[#D4AF37]/30 -translate-x-1/2"></div>
             <div className="space-y-24">
               {[
-                { time: "05", title: "The Selection", desc: "Inspecting premium MP Sharbati for moisture and purity. Only the best grains are approved." },
-                { time: "09", title: "Cold-Milling", desc: "Stone chakki starts. We monitor temperature every 15 mins to ensure it never crosses 30°C." },
-                { time: "04", title: "Delivery Run", desc: "Packed in breathable bags and dispatched across Bangalore immediately. Freshness delivered." }
+                { time: "05", title: "The Selection", desc: "We only use premium Sharbati wheat known for soft rotis." },
+                { time: "09", title: "Cold-Milling", desc: "Stone-milled at a slow pace maintaining low temperature to preserve nutrition." },
+                { time: "04", title: "Delivery Run", desc: "Freshly milled, packed and delivered across Bengaluru the same day." }
               ].map((step, index) => (
                 <div key={index} className={`relative flex flex-col md:flex-row items-center ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
                   <div className={`flex w-full md:w-1/2 justify-start ${index % 2 === 0 ? 'md:justify-end md:pr-16' : 'md:justify-start md:pl-16'}`}>
@@ -208,7 +207,7 @@ const Home = () => {
       {/* 5. FOOTER */}
       <footer className="bg-[#3E2723] text-white py-20 px-6 text-center">
         <h2 className="text-4xl font-bold mb-4 italic text-[#D4AF37]">Aarahi Foods</h2>
-        <p className="font-sans text-gray-400 mb-8 max-w-lg mx-auto">Traditional milling. Bangalore freshness.</p>
+        <p className="font-sans text-gray-400 mb-8 max-w-lg mx-auto">Freshly Milled Atta for Bengaluru Families</p>
         <div className="pt-8 border-t border-white/10 text-[10px] text-gray-500 uppercase tracking-widest font-sans">
           © 2026 Aarahi Foods • Traditional Quality • Bangalore
         </div>
@@ -224,7 +223,7 @@ const Home = () => {
         
         <Link to="/about" className="flex flex-col items-center text-gray-400 hover:text-[#3E2723] transition-all active:scale-95">
           <HelpCircle size={22} />
-          <span className="text-[9px] font-bold mt-1 uppercase tracking-tighter text-nowrap">Why Me</span>
+          <span className="text-[9px] font-bold mt-1 uppercase tracking-tighter text-nowrap">Why Aarahi</span>
         </Link>
         
         <button className="flex flex-col items-center text-gray-400 hover:text-[#3E2723] transition-all active:scale-95">
