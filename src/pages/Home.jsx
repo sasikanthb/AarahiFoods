@@ -35,9 +35,9 @@ const Home = () => {
         <motion.div 
           animate={{ scale: [1, 1.1, 1], opacity: [0.5, 1, 0.5] }} 
           transition={{ repeat: Infinity, duration: 1.5 }}
-          className="text-[#D4AF37] font-serif italic text-2xl"
+          className="text-[#D4AF37] font-serif italic text-2xl text-center px-6"
         >
-          Milling Freshness for Bangalore...
+          Aarahi: Milling Freshness for Bangalore...
         </motion.div>
       </div>
     );
@@ -199,7 +199,7 @@ const Home = () => {
           <HelpCircle size={22} />
           <span className="text-[9px] font-bold mt-1 uppercase tracking-tighter text-nowrap">Why Me</span>
         </Link>
-        
+
         <button className="flex flex-col items-center text-gray-400 hover:text-[#3E2723] transition-all active:scale-95">
           <Search size={22} />
           <span className="text-[9px] font-bold mt-1 uppercase tracking-tighter">Search</span>
