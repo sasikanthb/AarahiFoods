@@ -1,151 +1,135 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Home as HomeIcon, HelpCircle, Search } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ShieldCheck, Leaf, Heart, ThermometerSnowflake, Activity } from 'lucide-react';
 
 const About = () => {
-  // Ensure the page starts at the top when navigating here
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
-    <div className="min-h-screen bg-[#FFFDF5] pt-32 pb-40 px-6 font-serif overflow-x-hidden">
-      <div className="max-w-5xl mx-auto">
-        
-        {/* 1. THE EMOTIONAL HOOK */}
-        <section className="mb-24">
-          <motion.span 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="uppercase tracking-[0.3em] text-[10px] font-sans font-bold text-[#8B4513] block mb-4"
-          >
-            The Soul of Aarahi
-          </motion.span>
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-bold text-[#3E2723] leading-[1.1] tracking-tighter"
-          >
-            A Lesson from my <br />
-            <span className="italic text-[#D4AF37]">Grandmother.</span>
-          </motion.h1>
-        </section>
+    <div className="min-h-screen bg-[#FFFDF5] text-[#3E2723] font-serif overflow-x-hidden pb-32">
+      
+      {/* 1. HERO: THE MANIFESTO */}
+      <section className="pt-40 pb-20 px-6 text-center max-w-4xl mx-auto">
+        <motion.span 
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="uppercase tracking-[0.4em] text-[10px] font-sans font-black text-[#D4AF37] mb-6 block"
+        >
+          Our Philosophy
+        </motion.span>
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-5xl md:text-7xl font-bold leading-tight mb-12"
+        >
+          Flour shouldn't have a <br />
+          <span className="italic font-light text-[#D4AF37]">Shelf Life.</span>
+        </motion.h1>
+        <motion.p 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
+          className="text-xl md:text-2xl text-gray-600 font-sans font-light leading-relaxed italic"
+        >
+          "At Aarahi, we believe that food loses its soul when it sits in a warehouse for months. 
+          We brought back the stone mill to bring back the life in your rotis."
+        </motion.p>
+      </section>
 
-        {/* 2. THE STORY */}
-        <div className="grid md:grid-cols-2 gap-16 items-start mb-32">
-          <div className="space-y-8 text-lg leading-relaxed text-gray-700">
-            <h3 className="text-2xl font-bold text-[#3E2723] italic border-b-2 border-[#D4AF37] inline-block pb-2">The Silent Meal</h3>
-            <p>
-              It started on a day of joy. My grandmother came to visit, and knowing her love for Chapathis, we prepared her a special meal. We were excited, waiting for that nod of approval.
-            </p>
-            <p>
-              But after the first bite, her expression changed. She finished the meal in silence. When we asked if something was wrong, she looked at us with a heavy heart and said: 
-              <br />
-              <span className="text-[#8B4513] font-bold italic">"This is not a real Chapathi. This flour has no life in it."</span>
-            </p>
-            
-            <p className="font-bold text-[#3E2723] bg-[#F5F5DC] p-8 rounded-3xl shadow-sm border-l-8 border-[#D4AF37]">
-              Weeks later, at our village, she cooked for us. That was our "Aha!" moment. We realized the city was eating "dead flour."
-            </p>
-          </div>
-          
-          <motion.div 
-            whileHover={{ scale: 1.02 }}
-            className="relative rounded-[4rem] overflow-hidden shadow-2xl border-8 border-white"
-          >
-            <img src="/Aarahi Image 3.jpg" alt="Traditional Village Milling" className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#3E2723]/90 to-transparent flex items-end p-10">
-               <div>
-                 <p className="text-[#D4AF37] font-sans font-bold text-xs uppercase tracking-widest mb-2">The Realization</p>
-                 <p className="text-white font-sans text-sm italic leading-relaxed">"We wanted to bring the village's freshness back to our family and yours."</p>
-               </div>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* 3. THE MISSION */}
-        <section className="mb-32 text-center bg-white p-16 md:p-24 rounded-[5rem] shadow-sm border border-gray-50">
-           <div className="max-w-3xl mx-auto">
-              <h2 className="text-4xl font-bold text-[#3E2723] mb-6 font-serif tracking-tight">Reviving the <span className="italic text-[#D4AF37]">Olden Days</span></h2>
-              <p className="text-gray-500 font-sans leading-relaxed mb-12 italic">
-                Aarahi wasn't born to build a business. It was born to bring back the nutrition we lost. We follow my grandmother's process—from selecting the right wheat to slow-milling it with patience.
+      {/* 2. THE PROBLEM (HIGH HEAT) VS THE SOLUTION (COLD MILL) */}
+      <section className="py-24 bg-[#F5F5DC]/50 border-y border-[#D4AF37]/10">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <h2 className="text-4xl font-bold uppercase tracking-tighter">The Hidden Truth <br/> about Atta</h2>
+              <p className="font-sans text-gray-600 leading-relaxed">
+                Most commercial flours are processed in massive roller mills that generate temperatures up to **90°C**. This heat kills the enzymes and turns the natural oils rancid.
               </p>
-              <div className="grid md:grid-cols-3 gap-12 font-sans">
-                 <div className="space-y-4">
-                    <div className="w-12 h-12 bg-[#F5F5DC] rounded-full flex items-center justify-center mx-auto text-[#D4AF37] font-bold">1</div>
-                    <h5 className="font-bold text-xs tracking-widest text-[#3E2723]">SELECTIVE GRAIN</h5>
-                 </div>
-                 <div className="space-y-4">
-                    <div className="w-12 h-12 bg-[#F5F5DC] rounded-full flex items-center justify-center mx-auto text-[#D4AF37] font-bold">2</div>
-                    <h5 className="font-bold text-xs tracking-widest text-[#3E2723]">SLOW COLD-MILL</h5>
-                 </div>
-                 <div className="space-y-4">
-                    <div className="w-12 h-12 bg-[#F5F5DC] rounded-full flex items-center justify-center mx-auto text-[#D4AF37] font-bold">3</div>
-                    <h5 className="font-bold text-xs tracking-widest text-[#3E2723]">INSTANT DELIVERY</h5>
-                 </div>
+              
+              <div className="space-y-4">
+                <div className="flex items-start gap-4 p-6 bg-white rounded-3xl shadow-sm">
+                  <ThermometerSnowflake className="text-[#D4AF37]" size={32} />
+                  <div>
+                    <h4 className="font-bold text-lg">The 30°C Rule</h4>
+                    <p className="text-sm text-gray-500 font-sans leading-relaxed">We maintain a strict low-temperature grind to preserve Vitamin E and minerals.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4 p-6 bg-white rounded-3xl shadow-sm">
+                  <Activity className="text-[#D4AF37]" size={32} />
+                  <div>
+                    <h4 className="font-bold text-lg">Zero Oxidation</h4>
+                    <p className="text-sm text-gray-500 font-sans leading-relaxed">By milling only after your order, we ensure the flour is at its peak nutritional value.</p>
+                  </div>
+                </div>
               </div>
-           </div>
-        </section>
+            </div>
 
-        {/* 4. FOUNDER'S PLEDGE */}
-        <section className="flex flex-col md:flex-row items-center gap-16 mb-32">
-           <div className="md:w-1/3">
-              <motion.div whileHover={{ rotate: -5 }} className="bg-[#3E2723] rounded-[3rem] p-10 shadow-2xl -rotate-2">
-                 <p className="text-white font-serif italic text-xl leading-relaxed">
-                   "Aarahi is my way of making sure my family never eats dead flour again."
-                 </p>
-                 <div className="mt-8 text-[#D4AF37] font-sans font-bold text-xs uppercase tracking-widest">Aalekhya Reddy</div>
+            {/* Creative Visual: The Stone Mill Story */}
+            <div className="relative">
+              <div className="aspect-[4/5] bg-white rounded-[4rem] shadow-2xl overflow-hidden border-8 border-white">
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20 z-10" />
+                <div className="flex items-center justify-center h-full bg-[#3E2723] text-[#D4AF37] text-center p-12 italic text-2xl">
+                  
+                </div>
+              </div>
+              <motion.div 
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                className="absolute -bottom-10 -right-10 w-40 h-40 bg-[#D4AF37] rounded-full flex items-center justify-center text-[#3E2723] font-sans font-black text-[10px] uppercase tracking-widest text-center p-6 border-4 border-[#FFFDF5]"
+              >
+                Slow Ground • Stone Milled • 28 RPM
               </motion.div>
-           </div>
-           <div className="md:w-2/3">
-              <h4 className="text-3xl font-bold text-[#3E2723] mb-6">Traditional Wisdom. Modern Precision.</h4>
-              <p className="text-lg text-gray-600 leading-relaxed font-sans">
-                My grandmother taught me that food is more than just calories—it's health and heritage. At Aarahi, we combine her traditional wisdom with uncompromising quality control. We don't stock, we don't store. We only mill the taste and freshness of the olden days back into your life.
-              </p>
-           </div>
-        </section>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        {/* 5. CTA */}
-        <div className="text-center">
-           <Link to="/shop">
-             <button className="bg-[#D4AF37] text-[#3E2723] px-14 py-6 rounded-full font-sans font-bold uppercase tracking-[0.2em] text-xs hover:bg-[#3E2723] hover:text-white transition-all shadow-2xl">
-                Bring Freshness Home
-             </button>
-           </Link>
+      {/* 3. OUR VALUES (GRID) */}
+      <section className="py-32 max-w-6xl mx-auto px-6">
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">The Aarahi Promise</h2>
+          <div className="h-1 w-20 bg-[#D4AF37] mx-auto" />
         </div>
 
-      </div>
+        <div className="grid md:grid-cols-3 gap-12 text-center">
+          <div className="space-y-4 p-8 hover:bg-white hover:shadow-2xl rounded-[3rem] transition-all cursor-default">
+            <div className="w-16 h-16 bg-[#F5F5DC] rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <Leaf className="text-[#D4AF37]" size={30} />
+            </div>
+            <h3 className="text-xl font-bold uppercase tracking-tighter">Whole Grain Only</h3>
+            <p className="text-sm text-gray-500 font-sans leading-relaxed">No Maida. No bleaching agents. No "extra" white flour. Just the grain in its purest form.</p>
+          </div>
 
-      {/* SYNCED APP-STYLE BOTTOM NAVIGATION BAR */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-6 py-3 z-[9999] flex justify-between items-center shadow-[0_-10px_40px_rgba(0,0,0,0.05)] md:hidden">
-        
-        <Link to="/" className="flex flex-col items-center text-gray-400 hover:text-[#3E2723] transition-transform active:scale-95">
-          <HomeIcon size={22} strokeWidth={2.5} />
-          <span className="text-[9px] font-bold mt-1 uppercase tracking-tighter">Home</span>
-        </Link>
-        
-        {/* ACTIVE STATE: WHY ME */}
-        <Link to="/about" className="flex flex-col items-center text-[#3E2723] transition-all active:scale-95">
-          <HelpCircle size={22} strokeWidth={2.5} />
-          <span className="text-[9px] font-bold mt-1 uppercase tracking-tighter text-nowrap">Why Me</span>
-        </Link>
+          <div className="space-y-4 p-8 hover:bg-white hover:shadow-2xl rounded-[3rem] transition-all cursor-default">
+            <div className="w-16 h-16 bg-[#F5F5DC] rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <ShieldCheck className="text-[#D4AF37]" size={30} />
+            </div>
+            <h3 className="text-xl font-bold uppercase tracking-tighter">FSSAI Certified</h3>
+            <p className="text-sm text-gray-500 font-sans leading-relaxed">Modern hygiene standards combined with traditional milling methods. License: 21226008000549</p>
+          </div>
 
-        <button className="flex flex-col items-center text-gray-400 hover:text-[#3E2723] transition-all active:scale-95">
-          <Search size={22} />
-          <span className="text-[9px] font-bold mt-1 uppercase tracking-tighter">Search</span>
-        </button>
-        
-        <Link to="/shop" className="relative bg-[#3E2723] text-[#D4AF37] px-4 py-2 rounded-xl flex flex-col items-center shadow-lg active:scale-95 transition-transform">
-          <span className="absolute -top-1.5 -right-1.5 flex h-3.5 w-3.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-red-500 border-2 border-white"></span>
-          </span>
-          <span className="text-[8px] font-black italic font-serif leading-none uppercase">Aarahi</span>
-          <span className="text-[10px] font-black uppercase tracking-tighter">Shop</span>
-        </Link>
-        
-      </div>
+          <div className="space-y-4 p-8 hover:bg-white hover:shadow-2xl rounded-[3rem] transition-all cursor-default">
+            <div className="w-16 h-16 bg-[#F5F5DC] rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <Heart className="text-[#D4AF37]" size={30} />
+            </div>
+            <h3 className="text-xl font-bold uppercase tracking-tighter">Made for Moms</h3>
+            <p className="text-sm text-gray-500 font-sans leading-relaxed">Founded by a mother who understands that your family's health starts in the kitchen.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. CALL TO ACTION */}
+      <section className="px-6">
+        <div className="max-w-5xl mx-auto bg-[#3E2723] rounded-[4rem] p-12 md:p-24 text-center text-[#D4AF37]">
+          <h2 className="text-4xl md:text-6xl font-bold mb-8">Ready to taste the <br/> Difference?</h2>
+          <p className="text-white/60 font-sans mb-12 max-w-xl mx-auto">Order a Founder's Kit today and get a sample of our Sprouted Ragi flour with your first purchase.</p>
+          <Link to="/shop">
+            <button className="bg-[#D4AF37] text-[#3E2723] px-12 py-5 rounded-2xl font-sans font-black uppercase tracking-widest text-xs hover:bg-white transition-all">
+              Go to the Shop
+            </button>
+          </Link>
+        </div>
+      </section>
+
     </div>
   );
 };
